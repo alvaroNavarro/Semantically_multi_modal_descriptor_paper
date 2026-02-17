@@ -1,0 +1,27 @@
+\documentclass[lettersize,journal]{IEEEtran}
+
+\include{dependences}
+
+\begin{document}
+	\include{Sections/MyData}
+
+\maketitle
+
+\begin{abstract}
+	Understanding environments has increasingly become a critical task for autonomous vehicle navigation applications in highly dynamic scenarios. Although extracting information from images has shown promising results, it remains challenging under changing environmental conditions, not only due to scene dynamics but also variations in illumination. On the other hand, point clouds acquired from LiDAR sensors are largely unaffected by weather conditions; however, they still present challenges related to high data sparsity and the lack of contextual information in perception tasks. Therefore, semantic understanding of the environment is essential and remains an open challenge, particularly when fusion mechanisms are involved. Based on this motivation, this paper proposes a multimodal semantic feature extraction strategy based on a fused representation of panoramic imagery and geometrically consistent projections. Unlike approaches that focus solely on semantic prediction, the proposed method explicitly derives compact and discriminative semantic descriptors from the fused representation. These descriptors jointly encode visual appearance, contextual information, and spatial structure, enabling robust object-level class identification in complex scenarios. Experiments are conducted in KITTI Dataset.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+	  Camera, 3D-LiDAR, sensor fusion, semantic descriptor, multi-modal fusion.
+\end{IEEEkeywords}
+	
+	\input{Sections/1.Introduction}
+	\input{Sections/2.Related_works}
+    \input{Sections/3.Methodology}
+	\input{Sections/4.Results}
+	\input{Sections/5.Conclusions}
+	\printbibliography
+    %\input{Sections/Biography}
+    
+\end{document}
