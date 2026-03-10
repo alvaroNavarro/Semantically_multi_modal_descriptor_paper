@@ -1,11 +1,8 @@
+%********************************************************************************
 \section{Methodology}~\label{sec:methodology}
+%********************************************************************************
 
-The methodology for generating descriptors from a learning process based on the fusion of images and point clouds is divided into several stages: The first stage corresponds to the adjustment or preprocessing of the point cloud so that it can be projected onto the panoramic image. Then, based on the model presented by \cite{Lin2025}, the point cloud and the images are fed into the network to obtain perceptual features from both modalities individually through feature fusion using attention-based models.
-Next, the projected point cloud is transformed into the 3D space using sparse convolutions within a refinement module to optimize the segmentation produced by both modalities. Finally, a trainable global descriptor is constructed, which transforms the multimodal 3D features into a discriminative embedding for the identification of the objects present in the scene.
-
-\subsection{Panoramic Images Generation}~\label{subsec:panoramic-image-generation}
-
-For comprehensive scene understanding and environmental awareness, the use of panoramic images offers significant advantages over single-camera setups, particularly in outdoor and large-scale autonomous perception scenarios. The panoramic representation of our multi-sensor system provides a 180-degree field of view, enabling the system to capture in front of the vehicle spatial context of a scene in a single frame. 
+The methodology for generating descriptors from a learning process based on the fusion of images and point clouds is divided into several stages, as depicted in Fig.~\ref{fig:semantically-learned-global-descriptor-pipeline} The first stage corresponds to the adjustment or preprocessing of the point cloud so that it can be projected onto the panoramic image. 
 
 \newpage
 
@@ -16,19 +13,31 @@ For comprehensive scene understanding and environmental awareness, the use of pa
 	\label{fig:panoramic-image-generation}
 \end{strip}
 
+Then, based on the model presented by \cite{Lin2025}, the point cloud and the images are fed into the network to obtain perceptual features from both modalities individually through feature fusion using attention-based models.
+Next, the projected point cloud is transformed into the 3D space using sparse convolutions within a refinement module to optimize the segmentation produced by both modalities. Finally, a trainable global descriptor is constructed, which transforms the multimodal 3D features into a discriminative embedding for the identification of the objects present in the scene.  
+
+%-------------------------------------------------------------------------------------
+\subsection{Panoramic Images Generation}~\label{subsec:panoramic-image-generation}
+%-------------------------------------------------------------------------------------
+
+For comprehensive scene understanding and environmental awareness, the use of panoramic images offers significant advantages over single-camera setups, particularly in outdoor and large-scale autonomous perception scenarios. The panoramic representation of our multi-sensor system provides a 180-degree field of view, enabling the system to capture in front of the vehicle spatial context of a scene in a single frame. 
+
 This holistic perception reduces blind spots and allows the model to reason about long-range spatial relationships between objects that would otherwise be distributed across multiple independent camera views. By observing the entire surrounding environment simultaneously, the system gains a more coherent representation of scene layout, object distribution, and structural continuity. \\
+
 In contrast, single-camera images are inherently limited by their narrower field of view, which can restrict contextual reasoning and lead to partial observations of large structures such as buildings, intersections, or dynamic objects. This limitation may require additional multi-view fusion strategies to approximate a global understanding of the environment. Panoramic imagery, therefore, naturally supports richer contextual modeling, improved spatial completeness, and more consistent global representations of complex scenes.
 The process begins with feature extraction, where salient keypoints and corresponding binary descriptors are detected using the ORB~\cite{Rublee2011} algorithm. ORB is selected due to its computational efficiency and robustness to rotation and illumination changes, making it suitable for real-time multi-camera applications. The input images have an initial spatial resolution of 1280 × 720 pixels, providing sufficient detail for reliable keypoint detection and matching.
 Following feature extraction, a keypoint matching stage is performed between overlapping image pairs. Descriptor correspondences are established using a nearest-neighbor search strategy, typically based on Hamming distance due to ORB’s binary descriptors. These correspondences provide the geometric constraints necessary for estimating the transformation between views. \\
 
 Next, a homography matrix is computed using the matched keypoints. To ensure robustness against incorrect correspondences (outliers), the homography is estimated using the RANSAC (Random Sample Consensus) algorithm. RANSAC iteratively selects minimal subsets of correspondences to compute candidate homographies and retains the solution that maximizes inlier consistency, thereby improving geometric accuracy.
-Once the homography matrix is obtained, a perspective warping step is applied. One image is projected onto the coordinate frame of the reference image using a perspective transformation, aligning the overlapping regions into a common plane. This warping compensates for viewpoint differences between cameras under the planar scene assumption.
-Finally, after geometric alignment and stitching, the resulting composite image undergoes cropping to remove redundant regions and boundary artifacts. The final panoramic output has a spatial resolution of 908 × 230 pixels, producing a compact, horizontally extended representation suitable for downstream perception tasks. This process is showed in Fig.~\ref{fig:panoramic-image-generation}.
+Once the homography matrix is obtained, a perspective warping step is applied. One image is projected onto the coordinate frame of the reference image using a perspective transformation, aligning the overlapping regions into a common plane. 
 
+This warping compensates for viewpoint differences between cameras under the planar scene assumption. Finally, after geometric alignment and stitching, the resulting composite image undergoes cropping to remove redundant regions and boundary artifacts. The final panoramic output has a spatial resolution of 908 × 230 pixels, producing a compact, horizontally extended representation suitable for downstream perception tasks. This process is showed in Fig.~\ref{fig:panoramic-image-generation}.
+
+%-----------------------------------------------------------------------------------
 \subsection{Preprocessing of the Point Cloud}~\label{subsec:lidar-preprocessing}
+%-----------------------------------------------------------------------------------
 
-Several strategies can be employed to project 3D point clouds onto the image domain, including perspective, cylindrical~\cite{Kang2019RobustCP}, and spherical projections~\cite{HeYingshen2020}. The selection of the projection model is strongly influenced by the imaging geometry, sensor configuration, and especially the field of view of the camera system. In scenarios involving panoramic images with a wide angular coverage, spherical projection offers a more consistent geometric formulation than conventional perspective projection. Unlike perspective models, which are inherently limited to narrower fields of view and may introduce severe distortions at large viewing angles, spherical parameterization maintains the angular continuity of the scene by directly mapping LiDAR points according to their azimuth and elevation angles. This property ensures a more uniform spatial correspondence between 3D points and image pixels, thereby improving the stability of cross-modal alignment and facilitating more reliable multimodal feature fusion.
-To perform the spherical projection as depicted in Fig.~\ref{fig:spherical-projection}, we first convert the Cartesian coordinates of the LiDAR points into spherical coordinates. Each point in the point cloud is represented by its range $r$, azimuth angle $\theta$, and elevation angle $\phi$. These type of images are dependent on the LiDAR's design parameters. It is important to know the vertical field of view (FOV) and the number of channels of the LiDAR to determine the resolution of the projected image. The vertical FOV defines the range of elevation angles that the LiDAR can capture, while the number of channels determines how many discrete elevation angles are sampled within that FOV. 
+Several strategies can be employed to project 3D point clouds onto the image domain, including perspective, cylindrical~\cite{Kang2019RobustCP}, and spherical projections~\cite{HeYingshen2020}. The selection of the projection model is strongly influenced by the imaging geometry, sensor configuration, and especially the field of view of the camera system. 
 
 \newpage
 
@@ -39,8 +48,14 @@ To perform the spherical projection as depicted in Fig.~\ref{fig:spherical-proje
 	\label{fig:spherical-projection}
 \end{strip}
 
+In scenarios involving panoramic images with a wide angular coverage, spherical projection offers a more consistent geometric formulation than conventional perspective projection. Unlike perspective models, which are inherently limited to narrower fields of view and may introduce severe distortions at large viewing angles, spherical parameterization maintains the angular continuity of the scene by directly mapping LiDAR points according to their azimuth and elevation angles. This property ensures a more uniform spatial correspondence between 3D points and image pixels, thereby improving the stability of cross-modal alignment and facilitating more reliable multimodal feature fusion. \\
+
+\textbf{Formulation of spherical projection}. Let $\left\{\mathbf{P}, \mathbf{X}, \mathbf{S} \right\}$ be one of the training samples from a given data set, where $\mathbf{P} \in \mathbb{R}^{N \times 5}$ indicates a point cloud from LiDAR and N denotes the number of points. Each point $\mathbf{P}_i$ in point cloud $\mathbf{P}$ consist in 3D coordintes $(x,y,z)$, reflectance value $(r)$, and intensity value $(i)$. Let $\mathbf{X} \in \mathbb{R}^{H \times W \times 3}$ be an image from a RGB camera, where $H$ y $W$ represent the height and width of the image respectively. $\mathbf{S} \in \mathbb{R}^N$ is the set of semantic labels for point cloud $\mathbf{P}$. We aim to project the point cloud $\mathbf{P}$ from LiDAR coordinate to the panoramic image to obtain the 2D LiDAR features $\mathbf{\tilde{X}} \in \mathbb{R}^{H \times W \times C}$. $C$ indicates the number of channels w.r.t. the projected point cloud.
+
+To perform the spherical projection as depicted in Fig.~\ref{fig:spherical-projection}, we first convert the Cartesian coordinates of the LiDAR points into spherical coordinates. Each point in the point cloud is represented by its range $r$, azimuth angle $\theta$, and elevation angle $\phi$. These type of images are dependent on the LiDAR's design parameters. It is important to know the vertical field of view (FOV) and the number of channels of the LiDAR to determine the resolution of the projected image. The vertical FOV defines the range of elevation angles that the LiDAR can capture, while the number of channels determines how many discrete elevation angles are sampled within that FOV. \\
+
 This means that each channel corresponds to a specific elevation angle, and the point cloud can be projected onto a 2D image where each pixel corresponds to a specific azimuth and elevation angle. The horizontal resolution is determined by the azimuthal sampling, which is typically uniform across the 360-degree horizontal field of view. 
-We compurte the depth of each point in the point cloud as the Euclidean distance from the LiDAR sensor to the point, which can be calculated using the formula:
+We compute the depth of each point in the point cloud as the Euclidean distance from the LiDAR sensor to the point, which can be calculated using the formula:
 \begin{equation}
     r = \sqrt{x^2 + y^2 + z^2}  
 \end{equation}
@@ -59,6 +74,263 @@ Afterward, each of the angles needs to be normalized to range between $[0,1]$, a
 \begin{equation}    
     v = \left(1.0 - \left( \frac{\theta + |fov_{down}|}{fov} \right) \right)\cdot H
 \end{equation}
+
 where $fov$ is the total vertical field of view of the LiDAR, and $fov_{down}$ is the downward vertical field of view. The resulting coordinates $(u, v)$ represent the pixel location in the projected image corresponding to each point in the point cloud. This process effectively transforms the 3D spatial information from the LiDAR into a 2D representation that can be easily fused with the panoramic image data for subsequent feature extraction and descriptor generation.
 
+%----------------------------------------------------------------------------------------------------------
 \subsection{Deep Multi-Modal Semantic Segmentation}~\label{subsec:multi-modal-semantic-segmentation}
+%----------------------------------------------------------------------------------------------------------
+
+With the objective of constructing a texturized point cloud representation, a dual-branch Encoder–Decoder architecture has been adopted. This design enables the simultaneous extraction of low-level features (fine structural details) and high-level semantic features (global contextual information), which are essential for robust multi-modal perception.
+The upper branch is built upon the ResNet34 backbone \cite{he2015deepresiduallearningimage}, responsible for extracting rich visual appearance features from RGB images. In parallel, the lower branch is based on the SalsaNext architecture \cite{cortinhal2024salsanextfastuncertaintyawaresemantic}, specifically designed to process LiDAR data and extract geometric and structural features from the projected point cloud representation.
+Following the VPA-Net framework \cite{Lin2025}, feature integration is performed at an intermediate stage using the Feature Fusion Attention Module (FFAM). This module facilitates adaptive cross-modal interaction by learning attention weights that emphasize complementary information between the visual and geometric modalities, thereby enhancing the consistency and discriminative power of the fused representation. \\
+
+During preprocessing, a panoramic image is generated and the point cloud is projected onto the corresponding mosaic representation. Ensuring that both modalities share identical spatial dimensions is critical to guarantee alignment compatibility within the network architecture and to enable effective feature-level fusion.
+
+\textbf{Formulation of Two-Branches Network}. Let $T$ and $\tilde{T}$ be camera branch and LiDAR branch respectively. Let $\mathbf{O} \in \mathbb{R}^{H \times W \times S}$ and $\mathbf{\tilde{O}} \in \mathbb{R}^{H \times W \times S}$ be the output probabilities w.r.t. each network, where $S$ indicates the number of semantic classes. The output of Two-Branches network is computed by
+
+\begin{equation}
+	\begin{cases}
+		\mathbf{O} = T(\mathbf{X}), \\
+	    \mathbf{\tilde{O}} = \tilde{T}(\mathbf{\tilde{X}})
+	\end{cases}
+\end{equation}
+
+\textbf{Design of Feature Fusion Attention ++ Module}. Inspired by \cite{Lin2025}, we propose FFAM++ as depicted in Fig.~\ref{fig:ffam_pp}. It extends the original FFAM by introducing a hierarchical dual-attention mechanism for more robust cross-modal feature refinement. First, camera and LiDAR features are concatenated and projected through a convolutional fusion layer to learn joint representations. A spatial attention map is then computed to selectively enhance LiDAR features conditioned on the fused multi-modal context. Unlike the original FFAM, FFAM++ further incorporates a global channel-wise attention mechanism based on adaptive average pooling, enabling the model to capture global contextual dependencies and reweight feature responses across channels. The final output is obtained through residual addition between the original LiDAR features and the hierarchically refined attention response. This design enhances stability, improves contextual awareness, and provides more discriminative multi-modal representations while maintaining architectural compatibility with the original network. \\
+
+\textbf{Formulation of FFAM++}. Let $F_c \in \mathbb{R}^{C \times H \times W}$ and $F_l \in \mathbb{R}^{C' \times H \times W}$ be camera and LiDAR feature maps, respectively. The fused representation is first obtained by channel-wise concatenation followed by a convolutional projection:
+
+\begin{equation}
+	F_f = \phi ([F_l, F_c])
+	\label{eq:concatenation-image-lidar}
+\end{equation}
+\begin{equation}
+	A_s = \sigma (F_f)
+\end{equation}
+\begin{equation}
+	F^{(1)}_l = F_l \otimes A_s
+\end{equation}
+\begin{equation}
+	z = \mathrm{GAP}(F^{(1)}_l)
+\end{equation}
+\begin{equation}
+	A_c = \sigma (\delta (z))
+\end{equation}
+where $[.;.]$ denotes the concatenation operator, $\phi$ is a non-linea activation function. $\sigma$ denotes the sigmoid function. $\otimes$ denotes element-wise multiply operator. $\mathrm{AAP}$ refers to adaptive average pooling. $\delta$ denotes ReLU activation function.
+The hierarchically refined feature is therefore:
+\begin{equation}
+	F^{(2)}_l = F^{(1)}_l \otimes A_c
+\end{equation}
+Finally, the residual output of FFAM++ is defined as:
+\begin{equation}
+	F_{out} = F_l + F^{(2)}_l = F_l + (F_l \otimes A_s \otimes A_c)
+\end{equation}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/FFAM++.pdf} 	
+	\caption{FFAM++ Module}	
+	\label{fig:ffam_pp}
+\end{figure}
+
+%----------------------------------------------------------------------
+\subsection{Refinement module}~\label{subsec:refinement-mod}
+%----------------------------------------------------------------------
+
+By Converting fused LiDAR features back into the 3D spatial domain before constructing the global descriptor is fundamental for ensuring geometric consistency, structural stability, and long-term robustness. While multi-modal fusion is often performed in projected 2D spaces (e.g., range view or image plane), such representations remain sensitive to viewpoint changes, occlusions, and appearance variations. Moreover, the conversion of 3D point clouds into a 2D plane inevitably introduces data degradation and feature resolution reduction, leading to unavoidable spatial information loss. By re-projecting the fused features into metric 3D coordinates, the learned representations become anchored to the physical structure of the environment, preserving spatial relationships and mitigating the loss of geometric fidelity introduced during the projection process. \\
+
+We propose a refinement module that transforms fused range-view (RV) feature maps into a geometrically consistent semantic 3D representation. The pipeline consists of four stages: backprojection, sparse tensor construction, sparse 3D convolutional refinement, and voxel-wise semantic classification, as depicted in Fig.~\ref{fig:refinement-mod}. \\
+
+First, the multimodal encoder–decoder network produces a dense RV feature map. Using the known projection indices of each LiDAR point, features are lifted from the 2D RV domain back to their corresponding 3D points through direct indexing. This yields point-wise semantic features defined in Euclidean space.
+Next, the 3D space is discretized into voxels with a predefined resolution. Points are assigned to voxels based on their spatial coordinates, and features within the same voxel are aggregated. Only occupied voxels are retained, forming a sparse tensor representation. This avoids unnecessary computation over empty space and enables efficient large-scale processing. \\
+
+The sparse voxel tensor is then refined using stacked sparse 3D convolution layers \cite{graham20173dsemanticsegmentationsubmanifold, BaoyuanLiu2015}. For each active voxel, features are updated by aggregating information from neighboring active voxels within a local kernel. This operation propagates contextual information in true 3D space, enforcing spatial consistency while preserving computational efficiency.
+Finally, a voxel-wise linear classifier produces semantic logits, which are converted into class probabilities via softmax function. The predicted voxel labels can be directly interpreted as a semantic 3D map or projected back to individual points to obtain a semantic point cloud.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/Refinement_Module.pdf} 	
+	\caption{Refinement Module}	
+	\label{fig:refinement-mod}
+\end{figure}
+
+%----------------------------------------------------------------------------------------------------------------
+\subsection{Semantically-geometry-guided descriptor module (SGGD)}~\label{subsec:Semantic-descriptor-network}
+%----------------------------------------------------------------------------------------------------------------
+
+Fig.~\ref{fig:semantic-descriptor-mod} shows the network architecture of semantic-geometry descriptor, where a textured semantic point cloud generated by the refinement module, a feature refinement stage in join with a linear projection and latent alignment aim to generate a distint scene descriptor. \\
+
+Given a set of enriched textured point cloud $\left \{ \mathbf{P_i}, \mathbf{X_i},  \mathbf{s}_i \right \}^{N}_{i=1}$, the goal of this module is to learn a parametric function, such as:
+\begin{equation}
+	\mathcal{F}_{\theta} : \mathbb{R}^{N \times d_{in}} \rightarrow \mathbb{R}^{D}
+\end{equation} 
+where $d_{in} = 6 + C$, that produces a compact global scene descriptor:
+\begin{equation}
+	\mathbf{\hat{d}} = \mathcal{F}_{\theta} (\mathcal{P})
+\end{equation}
+The first stage performs a local feature refinement:
+\begin{equation}
+	\mathbf{h}_i = \mathrm{ReLU}(\mathrm{BN}(\mathbf{x}_i))
+\end{equation}
+
+The next step is to compute the semantic embedding from probability vector generated by fusion module
+\begin{equation}
+	\mathbf{s}_i = \mathrm{Linear}(\mathbf{p}_i)
+\end{equation}
+
+Feature, depth, and semantic information are concatenated
+\begin{equation}
+	u_i = [\mathbf{h}_i, d_i, \mathbf{s}_i]
+\end{equation}
+where $\mathbf{s}_i \in \mathrm{R}^{C'+1+d_s}$
+An MLP produces the attention logit:
+\begin{equation}
+	a_i = \mathrm{Linear(ReLU(Linear(\mathbf{u}_i)))}
+\end{equation}
+The semantic logits are converted to semantic probabilitic:
+\begin{equation}
+	p_{i,s} = \frac{\exp(z_{i,s})}{\sum_{k=1}^{S}\exp(z_{i,k})}
+\end{equation}
+The semantic entropy is computed as:
+\begin{equation}
+	H_i = - \sum_{s=1}^{S}p_{i,s} \log (p_{i,s}) 
+\end{equation}
+The entropy is normalized by the maximum entropy:
+\begin{equation}
+	H_{max} = \log (S)
+\end{equation}
+\begin{equation}
+	\tilde{H}_i = \frac{H_i}{\log(S)}
+\end{equation}
+The semantic confidence weight is defined as:
+\begin{equation}
+	c_i = 1 - \tilde{H}_i
+\end{equation}
+The next step is to detemine the attention weights. They are computed using a softmax across all points:
+\begin{equation}
+	\alpha_i = \frac{\exp(\tilde{a}_i)}{\sum_{j=1}^{N}\exp(\tilde{a}_j)}
+\end{equation}
+The global feature is obtained by attention pooling:
+\begin{equation}
+	\mathbf{g} = \sum_{i=1}^{N}\alpha_i \mathbf{h}_i
+\end{equation}
+where $\mathbf{g} \in \mathrm{R}^{C'}$. The global feature is projected into the descriptor space:
+\begin{equation}
+	\mathbf{d} = \mathrm{Linear(\mathbf{g})}
+\end{equation}
+where $\mathbf{d} \in \mathrm{R}^{D}$. And finally, the descriptor is L2-normalized:
+\begin{equation}
+	\mathbf{f} = \frac{\mathbf{d}}{||\mathbf{d}||_2}
+\end{equation}
+where 
+\begin{equation}
+	||\mathbf{d}||_2 = \sqrt{\sum_{k=1}^{D}d^{2}_k}
+\end{equation}
+%--------------------------------------------------------------
+\subsection{Loss function}~\label{subsec:loss-function}
+%--------------------------------------------------------------
+
+We define two objective functions within he proposed framework: one for the semantis segmentation module and another for descriptor generation component. Due to the highly imbalanced class distribution commonly observed in LiDAR-based datasets, am appropiate loss formulation is required to ensure stable optimization and accurate learning of minority classes. \\
+
+For the segmentation task, we employ a combination of multi-class focal loss \cite{LinTsung2020} and Lovász-softmax loss \cite{BermanMaxim2018}. Focal loss address the class imbalance problem by dinamically down-weighting well-classified samples and emphasizing hard or misclassified examples. This mechanism allows the model to focus more on rare or dificult classes, which are often underrepresented in large-scale outdoor datasets. 
+
+\newpage
+
+\begin{strip}
+	\centering
+	\includegraphics[width=\linewidth]{Figures/Semantic_descriptor_learning_module.pdf} 	
+	\captionof{figure}{Semantic Descriptor Learning module.}	
+	\label{fig:semantic-descriptor-mod}
+\end{strip}
+
+However, optimizing only the classification loss does not necessarily lead to improvements in region-based evaluation metrics. \\
+
+To address this limitation, we incorporate the Lovász-softmax loss, which provides a differentiable surrogate for directly optimizing the Intersection-over-Union (IoU) metric. Since IoU is the standard evaluation metric for semantic segmentation, optimizing this objective encourages better region consistency and boundary alignment in the predicted segmentation maps. The combination of focal-loss and Lovász-softmax loss therefore balances class-level discrimination and region-level accuracy, leading to more robust segmentation performance in highly inbalanced environments.
+
+Let $S \in \mathbb{R}^{H \times W}$ be the proyected labels in the camera coordinates. All pixels in $S$ are initialized to 0 and compute the projected labels in $S$ By
+\begin{equation}
+	\mathbf{S}_{h,w} := \mathbf{y}_i
+\end{equation}
+The multi-class focal loss w.r.t. the LiDAR stream is defined assign
+
+\begin{equation}
+	\mathcal{\tilde{L}}_{foc} = \frac{1}{K}\sum_{s=1}^{S}\sum_{h=1}^{H}\sum_{w=1}^{W}\alpha_s \mathrm{f}\left \{ \mathbf{S}_{h,w} = s \right \} FL(\mathbf{\tilde{O}}_{s,h,w})
+\end{equation}
+where $FL(p) = -(1-p)^2 log(p)$ denotes the focal-loss function. $\alpha_s$ denotes the weights w.r.t. the s-th class. $K = \sum_{s=1}^{S}\sum_{h=1}^{H}\sum_{w=1}^{W} \mathcal(f) \left \{ \mathbf{S}_{h,w} = s \right \}$ indicates te number of available labels. f$\{.\}$ indicates the indicator function. Then, the multi-class focal loss w.r.t. the camera stream is:
+\begin{equation}
+	\mathcal{L}_{foc} = \frac{1}{K}\sum_{s=1}^{S}\sum_{h=1}^{H}\sum_{w=1}^{W}\alpha_s \mathrm{f}\left \{ \mathbf{S}_{h,w} = s \right \} FL(\mathbf{O}_{s,h,w})
+\end{equation}
+
+The Lovász-softmax loss w.r.t. the LiDAR stream is:
+
+\begin{equation}
+	\mathcal{\tilde{L}}_{lov} = \frac{1}{S}\sum_{s=1}^{S}\overline{\Delta_{J_s}}(\mathbf{\tilde{m}}(s))
+\end{equation}
+where
+\begin{equation}
+	\mathbf{\tilde{m}}_i(s) = \begin{cases}
+		1 - \mathbf{\tilde{O}}_{s,h,w}  & \text{if} \; s = \mathbf{S}_{h,w}, \\
+		\mathbf{\tilde{O}}_{s,h,w} & \text{otherside}
+	\end{cases} 
+\end{equation}
+$\overline{\Delta_{J_s}}$ indicates the Jaccard index for class $s$. $\mathbf{\tilde{m}}(s) \in [0,1]^N$ indicates the vector of errors. The Lovász-softmax loss w.r.t. the camera stream is defined as:
+
+\begin{equation}
+	\mathcal{L}_{lov} = \frac{1}{S}\sum_{s=1}^{S}\overline{\Delta_{J_s}}(\mathbf{m}(s))
+\end{equation}
+where
+\begin{equation}
+	\mathbf{m}_i(s) = \begin{cases}
+		1 - \mathbf{O}_{s,h,w}  & \text{if} \; s = \mathbf{S}_{h,w}, \\
+		\mathbf{O}_{s,h,w} & \text{otherside}
+	\end{cases} 
+\end{equation}
+
+For the descriptor generation module, we adopt a contrastive loss that promotes discriminative feature learning by minimizing the distance between descriptors corresponding to similar scenes while maximizing the distance between descriptor of dissimilar locations. This formulation enables the network to learn robust global representation suitable for long-term place recognition and localization tasks.
+The mathematical formulation is given by:
+\begin{equation}
+	\mathcal{L}_{con} = \mathcal{L}_{InfoNCE} + \alpha \mathcal{L}_{sem} + \beta \mathcal{L}_{cross}
+	\label{eq:contrastive-loss}
+\end{equation}
+where
+\begin{equation}
+		\mathcal{L}_{InfoNCE} = - \frac{1}{B}\sum_{k=1}^{B} \log \left \{ \frac{\exp (\frac{\mathbf{z}^k_i \cdot \mathbf{z}^k_j}{\tau})}{\sum_{l=1}^{B} \exp (\frac{\mathbf{z}^k_i \cdot \mathbf{z}^k_j}{\tau})} \right \}
+\end{equation}
+denotes a contrastive learning objective designed to learn discriminative feature representations. $B$ indicates the batch size, $\mathbf{z}_i$ and $\mathbf{z}_j$ are two descriptors that represent the two views of the same location or scene. \\
+The second term of Eq.~\ref{eq:contrastive-loss} corresponds to the semantic consistency between two views or modalities by aligning their global semantic distributions. The mathematical formulation is given by:\\
+
+Let $\mathbf{S}^{(i)}, \mathbf{S}^{(j)} \in \mathbb{R}^{N \times S}$ be the semantic logits predicted for two views of the same scene and $\mathbf{S}^{(i)}_{n,s}$ is the logits score of class $s$. A softmax operation is applied over the class dimension to convert logits into probabilities:
+\begin{equation}
+	p^{(i)}_{n,s} = \frac{\exp \left ( \mathbf{S}^{(i)}_{n,s} \right )}{\sum_{k=1}^{S} \exp \left (\mathbf{S}^{(i)}_{n,k}\right )}
+\end{equation}
+\begin{equation}
+	p^{(j)}_{n,s} = \frac{\exp \left ( \mathbf{S}^{(j)}_{n,s} \right )}{\sum_{k=1}^{S} \exp \left (\mathbf{S}^{(j)}_{n,k}\right )}
+\end{equation}
+where $p^{(i)}, p^{(j)} \in [0,1]^{N \times S}$. Then, the scene-level semantic representation is given by:
+\begin{equation}
+	h^{(i)}_s = \frac{1}{N}\sum_{n=1}^{N}p^{(i)}_{n,s}
+\end{equation}
+\begin{equation}
+	h^{(j)}_s = \frac{1}{N}\sum_{n=1}^{N}p^{(j)}_{n,s}
+\end{equation}
+where $\mathbf{h}^{(i)}, \mathbf{h}^{(j)} \in \mathbb{R}^S$ represents the semantic class distribution of the scene. And finally, the alignment between both semantic distributions is enforced using the mean squared error (MSE):
+\begin{equation}
+	\mathcal{L}_{sem} = \frac{1}{B}\sum_{b=1}^{B}||\mathbf{h}^{(i)}_b - \mathbf{h}^{(j)}_b||^{2}_2
+\end{equation}
+The third term of Eq.~\ref{eq:contrastive-loss} represents the cross-modal consistency. This means, it enforces cross-modal consistency between the descriptor obtained from the fused LiDAR–RGB representation and the descriptor extracted from the RGB branch. By maximizing their cosine similarity, the network learns a shared embedding space in which descriptors from different modalities representing the same scene become highly aligned. This constraint encourages the fused representation to preserve the semantic information captured by the visual modality while maintaining compatibility across modalities.\\
+
+Given two global descriptors $\mathbf{z}^{fused}, \mathbf{z}^{RGB} \in \mathbb{R}^{D}$. The cosine similarity is computed as is shown in the next equation:
+\begin{equation}
+	s_b = \sum_{d=1}^{D}z^{fused}_{d} \cdot z^{RGB}_{d}
+\end{equation}
+The loss function maximizes the similarity between both representation by minimizing:
+\begin{equation}
+	\mathcal{L}_{cross} = 1 - \frac{1}{B}\sum_{b=1}^{B}s_b
+\end{equation}
+The scalar parameters $\alpha, \beta$ are introduced to balance the relative contribution of the semantic alignment and cross-modal consistency losses with respect to the main contrastive objective. Since each loss term operates at different numerical scales and optimizes distinct properties of the learned representation, these weighting factors regulate their influence during training and prevent any single component from dominating the optimization process. Specifically, $\alpha$ controls the impact of the semantic consistency constraint, encouraging descriptors to preserve similar semantic distributions across observations, while $\beta$ governs the stregth of the cross-modal alignment between the fused and RGB-based descriptors. By properly tuning these coefficients, the model can achieve a trade-off between descriptor discriminability, semantic awareness, and cross-modal consistency, which is particulary important for robust long-term localization in multi-sensor environments.\\
+
+Finally, the total loss function is given by:
+\begin{equation}
+	\mathcal{L}_{total} = \mathcal{\tilde{L}}_{foc} + \mathcal{L}_{foc} + \tilde{\lambda} \mathcal{\tilde{L}}_{lov} + \lambda \mathcal{L}_{lov} + \gamma \mathcal{L}_{con}
+\end{equation}
+where $\lambda, \tilde{\lambda}$ and $\gamma$ are the hyper-parameter that balance different losses.

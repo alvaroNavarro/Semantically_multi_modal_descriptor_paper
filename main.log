@@ -1,0 +1,1625 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.3)  9 MAR 2026 21:22
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"g:/Mi unidad/Documentos/Archivos Universidad/Doctorado Univalle/Articulos/698102d251e08b79f0896f1e/main.tex"
+(g:/Mi unidad/Documentos/Archivos Universidad/Doctorado Univalle/Articulos/698102d251e08b79f0896f1e/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen148
+\@IEEEtrantmpdimenB=\dimen149
+\@IEEEtrantmpdimenC=\dimen150
+\@IEEEtrantmpcountA=\count275
+\@IEEEtrantmpcountB=\count276
+\@IEEEtrantmpcountC=\count277
+\@IEEEtrantmptoksA=\toks17
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 503.
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen151
+-- This is a 10 point document.
+LaTeX Encoding Info:    Redeclaring text command \textunderscore (encoding ?) on input line 937.
+\CLASSINFOnormalsizebaselineskip=\dimen152
+\CLASSINFOnormalsizeunitybaselineskip=\dimen153
+\IEEEnormaljot=\dimen154
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+\IEEEquantizedlength=\dimen155
+\IEEEquantizedlengthdiff=\dimen156
+\IEEEquantizedtextheightdiff=\dimen157
+\IEEEilabelindentA=\dimen158
+\IEEEilabelindentB=\dimen159
+\IEEEilabelindent=\dimen160
+\IEEEelabelindent=\dimen161
+\IEEEdlabelindent=\dimen162
+\IEEElabelindent=\dimen163
+\IEEEiednormlabelsep=\dimen164
+\IEEEiedmathlabelsep=\dimen165
+\IEEEiedtopsep=\skip49
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@IEEEsubequation=\count282
+\abovecaptionskip=\skip50
+\belowcaptionskip=\skip51
+\c@figure=\count283
+\c@table=\count284
+\@IEEEeqnnumcols=\count285
+\@IEEEeqncolcnt=\count286
+\@IEEEsubeqnnumrollback=\count287
+\@IEEEquantizeheightA=\dimen166
+\@IEEEquantizeheightB=\dimen167
+\@IEEEquantizeheightC=\dimen168
+\@IEEEquantizeprevdepth=\dimen169
+\@IEEEquantizemultiple=\count288
+\@IEEEquantizeboxA=\box53
+\@IEEEtmpitemindent=\dimen170
+\IEEEPARstartletwidth=\dimen171
+\c@IEEEbiography=\count289
+\@IEEEtranrubishbin=\box54
+)
+
+LaTeX Warning: \include should only be used after \begin{document} on input line 3.
+
+(dependences.tex
+** ATTENTION: Overriding command lockouts (line 5).
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen172
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen173
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count290
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count291
+\leftroot@=\count292
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count293
+\DOTSCASE@=\count294
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box55
+\strutbox@=\box56
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen174
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count295
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count296
+\dotsspace@=\muskip17
+\c@parentequation=\count297
+\dspbrk@lvl=\count298
+\tag@help=\toks19
+\row@=\count299
+\column@=\count300
+\maxfields@=\count301
+\andhelp@=\toks20
+\eqnshift@=\dimen175
+\alignsep@=\dimen176
+\tagshift@=\dimen177
+\tagwidth@=\dimen178
+\totwidth@=\dimen179
+\lineht@=\dimen180
+\@envbody=\toks21
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen181
+\ar@mcellbox=\box57
+\extrarowheight=\dimen182
+\NC@list=\toks23
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box58
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+\everycr=\toks24
+\minrowclearance=\skip57
+\rownum=\count302
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip58
+\multirow@cntb=\count303
+\multirow@dima=\skip59
+\bigstrutjot=\dimen183
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count304
+\float@exts=\toks25
+\float@box=\box59
+\@float@everytoks=\toks26
+\@floatcapt=\box60
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks27
+\c@algorithm=\count305
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudocode.sty
+Package: algpseudocode 
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count306
+\c@ALG@rem=\count307
+\c@ALG@nested=\count308
+\ALG@tlm=\skip60
+\ALG@thistlm=\skip61
+\c@ALG@Lnr=\count309
+\c@ALG@blocknr=\count310
+\c@ALG@storecount=\count311
+\c@ALG@tmpcounter=\count312
+\ALG@tmplength=\skip62
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks28
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen184
+\Gin@req@width=\dimen185
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen186
+\captionmargin=\dimen187
+\caption@leftmargin=\dimen188
+\caption@rightmargin=\dimen189
+\caption@width=\dimen190
+\caption@indent=\dimen191
+\caption@parindent=\dimen192
+\caption@hangindent=\dimen193
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEtablestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\normalfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\normalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONconference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi \fi  on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count313
+\c@continuedfloat=\count314
+Package caption Info: float package is loaded.
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count315
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count316
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+
+LaTeX Warning: Package "xcolor" has already been loaded: ignoring load-time
+(LaTeX)        option "xcdraw".
+
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/tabularray\tabularray.sty
+Package: tabularray 2025-11-27 v2025C Typeset tabulars and arrays with LaTeX3
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/ninecolors\ninecolors.sty
+Package: ninecolors 2022-02-13 v2022D Select colors with proper color contrast
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count317
+))
+Package: xparse 2025-10-09 L3 Experimental document command parser
+))
+\g__tblr_nohyper_int=\count318
+\l__tblr_a_int=\count319
+\l__tblr_c_int=\count320
+\l__tblr_r_int=\count321
+\l__tblr_d_dim=\dimen194
+\l__tblr_h_dim=\dimen195
+\l__tblr_o_dim=\dimen196
+\l__tblr_p_dim=\dimen197
+\l__tblr_q_dim=\dimen198
+\l__tblr_r_dim=\dimen199
+\l__tblr_s_dim=\dimen256
+\l__tblr_t_dim=\dimen257
+\l__tblr_v_dim=\dimen258
+\l__tblr_w_dim=\dimen259
+\l__tblr_a_box=\box61
+\l__tblr_b_box=\box62
+\l__tblr_c_box=\box63
+\l__tblr_d_box=\box64
+\c@tblrcount=\count322
+\c@colnum=\count323
+\c@rowcount=\count324
+\c@colcount=\count325
+\abovesep=\dimen260
+\belowsep=\dimen261
+\leftsep=\dimen262
+\rightsep=\dimen263
+\gTblrLevelInt=\count326
+\g__tblr_data_row_key_count_int=\count327
+\g__tblr_data_column_key_count_int=\count328
+\g__tblr_data_cell_key_count_int=\count329
+\g__tblr_array_int=\count330
+\l__tblr_key_count_int=\count331
+\l__tblr_key_quotient_int=\count332
+\l__tblr_key_quotient_two_int=\count333
+\l__tblr_key_remainder_int=\count334
+\g__tblr_data_str_value_count_int=\count335
+\lTblrChildTotalInt=\count336
+\lTblrChildHtotalInt=\count337
+\lTblrChildVtotalInt=\count338
+\l__child_diff_h_int=\count339
+\l__child_diff_v_int=\count340
+\l__child_sign_h_int=\count341
+\l__child_sign_v_int=\count342
+\l__child_step_int=\count343
+\lTblrDefaultHruleWidthDim=\dimen264
+\lTblrDefaultVruleWidthDim=\dimen265
+\l__tblr_split_balance_int=\count344
+\l__tblr_strut_dp_dim=\dimen266
+\l__tblr_strut_ht_dim=\dimen267
+\g__tblr_cell_wd_dim=\dimen268
+\g__tblr_cell_ht_dim=\dimen269
+\g__tblr_cell_head_dim=\dimen270
+\g__tblr_cell_foot_dim=\dimen271
+\l__tblr_measured_cell_box=\box65
+\g__tblr_last_box=\box66
+\l__tblr_temp_box=\box67
+\l__tblr_column_target_dim=\dimen272
+\l__tblr_hfuzz_dim=\dimen273
+\l__tblr_caption_box=\box68
+\l__tblr_caption_left_box=\box69
+\lTblrRowHeadInt=\count345
+\lTblrRowFootInt=\count346
+\l__tblr_row_head_box=\box70
+\l__tblr_row_foot_box=\box71
+\l__tblr_row_head_foot_dim=\dimen274
+\lTblrTableWidthDim=\dimen275
+\l__tblr_table_firsthead_box=\box72
+\l__tblr_table_middlehead_box=\box73
+\l__tblr_table_lasthead_box=\box74
+\l__tblr_table_firstfoot_box=\box75
+\l__tblr_table_middlefoot_box=\box76
+\l__tblr_table_lastfoot_box=\box77
+\l__tblr_remain_height_dim=\dimen276
+\l__tblr_next_rows_dim=\dimen277
+\l__tblr_page_overfill_dim=\dimen278
+\l__tblr_long_from_int=\count347
+\l__tblr_long_to_int=\count348
+\l__tblr_curr_i_int=\count349
+\l__tblr_prev_i_int=\count350
+\lTblrTablePageInt=\count351
+\l__tblr_table_head_box=\box78
+\l__tblr_table_foot_box=\box79
+\l__tblr_table_head_foot_dim=\dimen279
+\l__tblr_table_head_body_foot_dim=\dimen280
+\l__tblr_table_box=\box80
+\lTblrRowFirstInt=\count352
+\lTblrRowLastInt=\count353
+\l__tblr_cover_box_a_dim=\dimen281
+\l__tblr_cover_box_b_dim=\dimen282
+\l__tblr_table_hlines_box=\box81
+\l__tblr_hline_box=\box82
+\l__tblr_row_box=\box83
+\l__tblr_col_o_wd_dim=\dimen283
+\l__tblr_col_b_wd_dim=\dimen284
+\l__tblr_hline_leftskip_dim=\dimen285
+\l__tblr_hline_rightskip_dim=\dimen286
+\l__tblr_row_ht_dim=\dimen287
+\l__tblr_row_dp_dim=\dimen288
+\l__tblr_row_abovesep_dim=\dimen289
+\l__tblr_row_belowsep_dim=\dimen290
+\l__tblr_row_vlines_box=\box84
+\l__tblr_vline_box=\box85
+\l__tblr_cell_box=\box86
+\l__tblr_row_upper_dim=\dimen291
+\l__tblr_row_lower_dim=\dimen292
+\l__tblr_row_vpace_dim=\dimen293
+\l__tblr_vline_aboveskip_dim=\dimen294
+\l__tblr_vline_belowskip_dim=\dimen295
+\lTblrCellRowSpanInt=\count354
+\lTblrCellColSpanInt=\count355
+\l__tblr_cell_wd_dim=\dimen296
+\l__tblr_cell_ht_dim=\dimen297
+\lTblrCellAboveBorderWidthDim=\dimen298
+\lTblrCellBelowBorderWidthDim=\dimen299
+\lTblrCellLeftBorderWidthDim=\dimen300
+\lTblrCellRightBorderWidthDim=\dimen301
+\l__tblr_diag_box=\box87
+\l__tblr_cell_inner_wd_dim=\dimen302
+\l__tblr_cell_inner_dp_dim=\dimen303
+\l__tblr_cell_hanchor_dim=\dimen304
+\l__tblr_last_cell_table_ht_dim=\dimen305
+\l__tblr_last_cell_table_dp_dim=\dimen306
+\l__tblr_last_vline_wd_dim=\dimen307
+\l__tblr_tikz_node_box=\box88
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks29
+\pgfutil@tempdima=\dimen308
+\pgfutil@tempdimb=\dimen309
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box89
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks32
+))
+\pgf@x=\dimen310
+\pgf@y=\dimen311
+\pgf@xa=\dimen312
+\pgf@ya=\dimen313
+\pgf@xb=\dimen314
+\pgf@yb=\dimen315
+\pgf@xc=\dimen316
+\pgf@yc=\dimen317
+\pgf@xd=\dimen318
+\pgf@yd=\dimen319
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count356
+\c@pgf@countb=\count357
+\c@pgf@countc=\count358
+\c@pgf@countd=\count359
+\t@pgf@toka=\toks33
+\t@pgf@tokb=\toks34
+\t@pgf@tokc=\toks35
+\pgf@sys@id@count=\count360
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+))) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count361
+\pgfsyssoftpath@bigbuffer@items=\count362
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen320
+\pgfmath@count=\count363
+\pgfmath@box=\box90
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count364
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen321
+\pgf@picmaxx=\dimen322
+\pgf@picminy=\dimen323
+\pgf@picmaxy=\dimen324
+\pgf@pathminx=\dimen325
+\pgf@pathmaxx=\dimen326
+\pgf@pathminy=\dimen327
+\pgf@pathmaxy=\dimen328
+\pgf@xx=\dimen329
+\pgf@xy=\dimen330
+\pgf@yx=\dimen331
+\pgf@yy=\dimen332
+\pgf@zx=\dimen333
+\pgf@zy=\dimen334
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen335
+\pgf@path@lasty=\dimen336
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen337
+\pgf@shorten@start@additional=\dimen338
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box91
+\pgf@hbox=\box92
+\pgf@layerbox@main=\box93
+\pgf@picture@serial@count=\count365
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen339
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen340
+\pgf@pt@y=\dimen341
+\pgf@pt@temp=\dimen342
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen343
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen344
+\pgf@sys@shading@range@num=\count366
+\pgf@shadingcount=\count367
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box94
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box95
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen345
+\pgf@nodesepend=\dimen346
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen347
+\pgffor@skip=\dimen348
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count368
+\pgfplotmarksize=\dimen349
+)
+\tikz@lastx=\dimen350
+\tikz@lasty=\dimen351
+\tikz@lastxsaved=\dimen352
+\tikz@lastysaved=\dimen353
+\tikz@lastmovetox=\dimen354
+\tikz@lastmovetoy=\dimen355
+\tikzleveldistance=\dimen356
+\tikzsiblingdistance=\dimen357
+\tikz@figbox=\box96
+\tikz@figbox@bg=\box97
+\tikz@tempbox=\box98
+\tikz@tempbox@bg=\box99
+\tikztreelevel=\count369
+\tikznumberofchildren=\count370
+\tikznumberofcurrentchild=\count371
+\tikz@fig@count=\count372
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count373
+\pgfmatrixcurrentcolumn=\count374
+\pgf@matrix@numberofcolumns=\count375
+)
+\tikz@expandcount=\count376
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/smartdiagram\smartdiagram.sty
+Package: smartdiagram 2016/12/23 v0.3b Automatic creation of smart diagrams from lists of items.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count377
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+\xs_counta=\count378
+\xs_countb=\count379
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@layerbox@background=\box100
+\pgf@layerboxsaved@background=\box101
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+\pgf@layerbox@smart diagram arrow back=\box102
+\pgf@layerboxsaved@smart diagram arrow back=\box103
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/smartdiagram\smartdiagramlibrarycore.definitions.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/smartdiagram\smartdiagramlibrarycore.styles.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/smartdiagram\smartdiagramlibrarycore.commands.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/sttools\cuted.sty
+Package: cuted 2025/12/15 v2.10 Mixing onecolumn and twocolumn modes (ST)
+\At@ViperColsBreak=\toks41
+\preCutedStrip=\toks42
+\postCutedStrip=\toks43
+\cuted@@tempbox@a=\box104
+\cuted@@tempbox@c=\box105
+\cuted@@tempbox@var=\box106
+\hold@viper=\box107
+\@viper=\box108
+\cuted@@varbox@a=\box109
+\cuted@@varbox@c=\box110
+\cuted@@tempdim@spread=\dimen358
+\cuted@@tempdim@a=\dimen359
+\cuted@@tempdim@b=\dimen360
+\ht@hold@viper=\dimen361
+\ht@viper=\dimen362
+\var@@pagediscards@ht=\dimen363
+\stripsep=\skip63
+\viper@penalty=\count380
+\strip@page@discards=\dimen364
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
+Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
+\csq@reset=\count381
+\csq@gtype=\count382
+\csq@glevel=\count383
+\csq@qlevel=\count384
+\csq@maxlvl=\count385
+\csq@tshold=\count386
+\csq@ltx@everypar=\toks44
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
+File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
+File: csquotes.cfg 
+)
+Package csquotes Info: Option 'babel' depreciated.
+(csquotes)             Using 'autostyle'.
+Package csquotes Info: Enabling multilingual quotes.
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count387
+
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count388
+\c@listtotal=\count389
+\c@listcount=\count390
+\c@liststart=\count391
+\c@liststop=\count392
+\c@citecount=\count393
+\c@citetotal=\count394
+\c@multicitecount=\count395
+\c@multicitetotal=\count396
+\c@instcount=\count397
+\c@maxnames=\count398
+\c@minnames=\count399
+\c@maxitems=\count400
+\c@minitems=\count401
+\c@citecounter=\count402
+\c@maxcitecounter=\count403
+\c@savedcitecounter=\count404
+\c@uniquelist=\count405
+\c@uniquename=\count406
+\c@refsection=\count407
+\c@refsegment=\count408
+\c@maxextratitle=\count409
+\c@maxextratitleyear=\count410
+\c@maxextraname=\count411
+\c@maxextradate=\count412
+\c@maxextraalpha=\count413
+\c@abbrvpenalty=\count414
+\c@highnamepenalty=\count415
+\c@lownamepenalty=\count416
+\c@maxparens=\count417
+\c@parenlevel=\count418
+\blx@tempcnta=\count419
+\blx@tempcntb=\count420
+\blx@tempcntc=\count421
+\c@blx@maxsection=\count422
+\blx@maxsegment@0=\count423
+\blx@notetype=\count424
+\blx@parenlevel@text=\count425
+\blx@parenlevel@foot=\count426
+\blx@sectionciteorder@0=\count427
+\blx@sectionciteorderinternal@0=\count428
+\blx@entrysetcounter=\count429
+\blx@biblioinstance=\count430
+\labelnumberwidth=\skip64
+\labelalphawidth=\skip65
+\biblabelsep=\skip66
+\bibitemsep=\skip67
+\bibnamesep=\skip68
+\bibinitsep=\skip69
+\bibparsep=\skip70
+\bibhang=\skip71
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language79
+\c@mincomprange=\count431
+\c@maxcomprange=\count432
+\c@mincompwidth=\count433
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count434
+\c@savedafterword=\count435
+\c@annotator=\count436
+\c@savedannotator=\count437
+\c@author=\count438
+\c@savedauthor=\count439
+\c@bookauthor=\count440
+\c@savedbookauthor=\count441
+\c@commentator=\count442
+\c@savedcommentator=\count443
+\c@editor=\count444
+\c@savededitor=\count445
+\c@editora=\count446
+\c@savededitora=\count447
+\c@editorb=\count448
+\c@savededitorb=\count449
+\c@editorc=\count450
+\c@savededitorc=\count451
+\c@foreword=\count452
+\c@savedforeword=\count453
+\c@holder=\count454
+\c@savedholder=\count455
+\c@introduction=\count456
+\c@savedintroduction=\count457
+\c@namea=\count458
+\c@savednamea=\count459
+\c@nameb=\count460
+\c@savednameb=\count461
+\c@namec=\count462
+\c@savednamec=\count463
+\c@translator=\count464
+\c@savedtranslator=\count465
+\c@shortauthor=\count466
+\c@savedshortauthor=\count467
+\c@shorteditor=\count468
+\c@savedshorteditor=\count469
+\c@labelname=\count470
+\c@savedlabelname=\count471
+\c@institution=\count472
+\c@savedinstitution=\count473
+\c@lista=\count474
+\c@savedlista=\count475
+\c@listb=\count476
+\c@savedlistb=\count477
+\c@listc=\count478
+\c@savedlistc=\count479
+\c@listd=\count480
+\c@savedlistd=\count481
+\c@liste=\count482
+\c@savedliste=\count483
+\c@listf=\count484
+\c@savedlistf=\count485
+\c@location=\count486
+\c@savedlocation=\count487
+\c@organization=\count488
+\c@savedorganization=\count489
+\c@origlocation=\count490
+\c@savedoriglocation=\count491
+\c@origpublisher=\count492
+\c@savedorigpublisher=\count493
+\c@publisher=\count494
+\c@savedpublisher=\count495
+\c@language=\count496
+\c@savedlanguage=\count497
+\c@origlanguage=\count498
+\c@savedoriglanguage=\count499
+\c@pageref=\count500
+\c@savedpageref=\count501
+\shorthandwidth=\skip72
+\shortjournalwidth=\skip73
+\shortserieswidth=\skip74
+\shorttitlewidth=\skip75
+\shortauthorwidth=\skip76
+\shorteditorwidth=\skip77
+\locallabelnumberwidth=\skip78
+\locallabelalphawidth=\skip79
+\localshorthandwidth=\skip80
+\localshortjournalwidth=\skip81
+\localshortserieswidth=\skip82
+\localshorttitlewidth=\skip83
+\localshortauthorwidth=\skip84
+\localshorteditorwidth=\skip85
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count502
+\c@textcitetotal=\count503
+\c@textcitemaxnames=\count504
+\c@biburlbigbreakpenalty=\count505
+\c@biburlbreakpenalty=\count506
+\c@biburlnumpenalty=\count507
+\c@biburlucpenalty=\count508
+\c@biburllcpenalty=\count509
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count510
+)
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.bbx
+File: ieee.bbx 2025-08-01 v1.4f biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric-comp.bbx
+File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
+File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count511
+\c@bbx:relatedtotal=\count512
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.cbx
+File: ieee.cbx 2025-08-01 v1.4f biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-verb'...
+Package biblatex Info: ... file 'numeric-verb.cbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-verb.cbx
+File: numeric-verb.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+Package biblatex Info: Redefining '\textcites'.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2026-01-19 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3.sty
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.callouts.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.callouts.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodepartlowerbox=\box111
+\pgfnodeparttwobox=\box112
+\pgfnodepartthreebox=\box113
+\pgfnodepartfourbox=\box114
+\pgfnodeparttwentybox=\box115
+\pgfnodepartnineteenbox=\box116
+\pgfnodeparteighteenbox=\box117
+\pgfnodepartseventeenbox=\box118
+\pgfnodepartsixteenbox=\box119
+\pgfnodepartfifteenbox=\box120
+\pgfnodepartfourteenbox=\box121
+\pgfnodepartthirteenbox=\box122
+\pgfnodeparttwelvebox=\box123
+\pgfnodepartelevenbox=\box124
+\pgfnodeparttenbox=\box125
+\pgfnodepartninebox=\box126
+\pgfnodeparteightbox=\box127
+\pgfnodepartsevenbox=\box128
+\pgfnodepartsixbox=\box129
+\pgfnodepartfivebox=\box130
+))) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen365
+\pgfarrowlength=\dimen366
+\pgfarrowwidth=\dimen367
+\pgfarrowlinewidth=\dimen368
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore.code.tex
+\t@pgfplots@toka=\toks45
+\t@pgfplots@tokb=\toks46
+\t@pgfplots@tokc=\toks47
+\pgfplots@tmpa=\dimen369
+\c@pgfplots@coordindex=\count513
+\c@pgfplots@scanlineindex=\count514
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgfplotslibrary.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsupp_loader.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks48
+\t@pgf@tokb=\toks49
+\t@pgf@tokc=\toks50
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructure.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructureext.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count515
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsmatrix.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count516
+\t@pgfplotstable@a=\toks51
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsdeque.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.data.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count517
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotscolormap.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplotscolor.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsstackedplots.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsplothandlers.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex))) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.scaling.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.errorbars.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.markers.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsticks.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.paths.code.tex) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen370
+\pgfdecoratedremainingdistance=\dimen371
+\pgfdecoratedinputsegmentcompleteddistance=\dimen372
+\pgfdecoratedinputsegmentremainingdistance=\dimen373
+\pgf@decorate@distancetomove=\dimen374
+\pgf@decorate@repeatstate=\count518
+\pgfdecorationsegmentamplitude=\dimen375
+\pgfdecorationsegmentlength=\dimen376
+)
+\tikz@lib@dec@box=\box131
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathmorphing.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorations.pathreplacing.code.tex)) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count519
+\pgfplots@xmin@reg=\dimen377
+\pgfplots@xmax@reg=\dimen378
+\pgfplots@ymin@reg=\dimen379
+\pgfplots@ymax@reg=\dimen380
+\pgfplots@zmin@reg=\dimen381
+\pgfplots@zmax@reg=\dimen382
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))))
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... none found.
+
+
+Package csquotes Warning: No multilingual support.
+(csquotes)                Cannot enable multilingual quotes on input line 5.
+
+
+LaTeX Warning: Unused global option(s):
+    [lettersize].
+
+(main.aux (Sections/MyData.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+-- Lines per column: 58 (exact).
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count520
+\scratchdimen=\dimen383
+\scratchbox=\box132
+\nofMPsegments=\count521
+\nofMParguments=\count522
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count523
+\MPscratchDim=\dimen384
+\MPnumerator=\count524
+\makeMPintoPDFobject=\count525
+\everyMPtoPDFconversion=\toks53
+) (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (main.bbl)
+Package biblatex Info: Reference section=0 on input line 5.
+Package biblatex Info: Reference segment=0 on input line 5.
+
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
+ on input line 5.
+
+\openout2 = `Sections/MyData.aux'.
+
+(Sections/MyData.tex) (Sections/1.Introduction.tex
+Underfull \hbox (badness 5147) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 re-main-ing in-vari-ant to view-point changes, il-lu-mi-na-tion
+ []
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 such ro-bust rep-re-sen-ta-tions re-mains a cen-tral chal-lenge
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 layer en-abling end-to-end train-ing for large-scale place
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 To over-come the lim-i-ta-tions of purely appearance-based
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 meth-ods, LiDAR-based place recog-ni-tion tech-niques
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 im-proved in-vari-ance to light-ing con-di-tions and en-ables
+ []
+
+
+Underfull \hbox (badness 3884) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 more ac-cu-rate dis-crim-i-na-tion of scene el-e-ments based
+ []
+
+
+Underfull \hbox (badness 6364) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 on spa-tial con-fig-u-ra-tion. The emer-gence of learning-
+ []
+
+
+Underfull \hbox (badness 7451) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 [9] en-abled di-rect fea-ture ex-trac-tion from un-ordered
+ []
+
+
+Underfull \hbox (badness 3769) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 point sets through permutation-invariant op-er-a-tions and
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 that es-ti-mates over-lap and rel-a-tive yaw an-gle be-tween
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 3--8
+\OT1/ptm/m/n/10 dis-crim-i-na-tive global de-scrip-tors di-rectly from vox-elized
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
+
+ []
+
+[1{C:/Users/MARTHA MADRID/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+
+
+
+
+
+]
+
+pdfTeX warning: pdflatex (file ./Figures/Pipeline-global-descriptor-multi-modal.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/Pipeline-global-descriptor-multi-modal.pdf, id=38, 1149.33382pt x 557.20169pt>
+File: Figures/Pipeline-global-descriptor-multi-modal.pdf Graphic file (type pdf)
+<use Figures/Pipeline-global-descriptor-multi-modal.pdf>
+Package pdftex.def Info: Figures/Pipeline-global-descriptor-multi-modal.pdf  used on input line 16.
+(pdftex.def)             Requested size: 516.0pt x 250.16028pt.
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:0.0pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 0.0pt
+Output:0.0pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:696.0pt
+CUTED [output]: 0.0pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+
+Underfull \hbox (badness 4531) in paragraph at lines 21--23
+\OT1/ptm/m/n/10 at long dis-tances. This dis-per-sion weak-ens con-tex-tual
+ []
+
+
+Underfull \hbox (badness 2426) in paragraph at lines 21--23
+\OT1/ptm/m/n/10 Con-versely, purely image-based de-scrip-tors pro-vide rich
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+
+ []
+
+
+Underfull \hbox (badness 3623) in paragraph at lines 24--26
+[]\OT1/ptm/m/n/10 Large-scale an-no-tated datasets [17], [18], [19], [20]
+ []
+
+
+Underfull \hbox (badness 3919) in paragraph at lines 24--26
+\OT1/ptm/m/n/10 for struc-tured scene un-der-stand-ing; how-ever, ex-tract-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+\OT1/ptm/m/n/10 from sin-gle modal-i-ties re-mains chal-leng-ing. These
+ []
+
+
+Underfull \hbox (badness 4144) in paragraph at lines 24--26
+\OT1/ptm/m/n/10 ob-ser-va-tions mo-ti-vate mul-ti-modal fu-sion strate-gies that
+ []
+
+
+Underfull \hbox (badness 3000) in paragraph at lines 24--26
+\OT1/ptm/m/n/10 in-te-grate Li-DAR ge-om-e-try with vi-sual ap-pear-ance. By
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+\OT1/ptm/m/n/10 Nev-er-the-less, mul-ti-modal fu-sion in-tro-duces ad-di-tional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+
+ []
+
+
+Underfull \vbox (badness 1939) has occurred while \output is active []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)) (Sections/2.Related_works.tex [2 <./Figures/Pipeline-global-descriptor-multi-modal.pdf>] [3] [4]
+
+pdfTeX warning: pdflatex (file ./Figures/Semantically_Learned_descriptor.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/Semantically_Learned_descriptor.pdf, id=82, 821.9508pt x 621.28107pt>
+File: Figures/Semantically_Learned_descriptor.pdf Graphic file (type pdf)
+<use Figures/Semantically_Learned_descriptor.pdf>
+Package pdftex.def Info: Figures/Semantically_Learned_descriptor.pdf  used on input line 69.
+(pdftex.def)             Requested size: 516.0pt x 390.02507pt.
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:0.0pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 0.0pt
+Output:0.0pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:696.0pt
+CUTED [output]: 0.0pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+
+Underfull \hbox (badness 7869) in paragraph at lines 74--76
+\OT1/ptm/m/n/10 More-over, ad-vances in at-ten-tion mech-a-nisms, do-main
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 74--76
+\OT1/ptm/m/n/10 Many ex-ist-ing ap-proaches ei-ther fo-cus on global place
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+) (Sections/3.Methodology.tex [5 <./Figures/Semantically_Learned_descriptor.pdf>]
+<Figures/Stitching images_to_panoramic_uao.pdf, id=130, 563.34464pt x 167.9073pt>
+File: Figures/Stitching images_to_panoramic_uao.pdf Graphic file (type pdf)
+<use Figures/Stitching images_to_panoramic_uao.pdf>
+Package pdftex.def Info: Figures/Stitching images_to_panoramic_uao.pdf  used on input line 11.
+(pdftex.def)             Requested size: 516.0pt x 153.80275pt.
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:0.0pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 0.0pt
+Output:0.0pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:696.0pt
+CUTED [output]: 0.0pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+
+Underfull \hbox (badness 2088) in paragraph at lines 25--26
+\OT1/ptm/m/n/10 a more co-her-ent rep-re-sen-ta-tion of scene lay-out, ob-ject
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 28.
+(C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Underfull \hbox (badness 4120) in paragraph at lines 27--30
+\OT1/ptm/m/n/10 Panoramic im-agery, there-fore, nat-u-rally sup-ports richer
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 27--30
+\OT1/ptm/m/n/10 com-pu-ta-tional ef-fi-ciency and ro-bust-ness to ro-ta-tion and
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 27--30
+\OT1/ptm/m/n/10 over-lap-ping im-age pairs. De-scrip-tor cor-re-spon-dences are
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 27--30
+\OT1/ptm/m/n/10 These cor-re-spon-dences pro-vide the ge-o-met-ric con-straints
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--30
+
+ []
+
+[6 <./Figures/Stitching images_to_panoramic_uao.pdf>]
+
+pdfTeX warning: pdflatex (file ./Figures/Spherical_point_cloud_projection.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/Spherical_point_cloud_projection.pdf, id=143, 963.6pt x 196.33351pt>
+File: Figures/Spherical_point_cloud_projection.pdf Graphic file (type pdf)
+<use Figures/Spherical_point_cloud_projection.pdf>
+Package pdftex.def Info: Figures/Spherical_point_cloud_projection.pdf  used on input line 46.
+(pdftex.def)             Requested size: 516.0pt x 105.13774pt.
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:0.0pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 0.0pt
+Output:0.0pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:696.0pt
+CUTED [output]: 0.0pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+\OT1/ptm/m/n/10 ge-o-met-ric for-mu-la-tion than con-ven-tional per-spec-tive
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 51--52
+\OT1/ptm/m/n/10 map-ping Li-DAR points ac-cord-ing to their az-imuth and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+
+Underfull \vbox (badness 1019) has occurred while \output is active []
+
+
+Underfull \hbox (badness 3189) in paragraph at lines 84--87
+\OT1/ptm/m/n/10 fea-tures from the pro-jected point cloud rep-re-sen-ta-tion.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--87
+
+ []
+
+[7 <./Figures/Spherical_point_cloud_projection.pdf>]
+Underfull \hbox (badness 3219) in paragraph at lines 99--100
+\OT1/ptm/m/n/10 fused multi-modal con-text. Un-like the orig-i-nal FFAM,
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 99--100
+\OT1/ptm/m/n/10 Li-DAR fea-tures and the hi-er-ar-chi-cally re-fined at-ten-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
+
+ []
+
+
+
+pdfTeX warning: pdflatex (file ./Figures/FFAM++.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/FFAM++.pdf, id=172, 509.0217pt x 270.0489pt>
+File: Figures/FFAM++.pdf Graphic file (type pdf)
+<use Figures/FFAM++.pdf>
+Package pdftex.def Info: Figures/FFAM++.pdf  used on input line 131.
+(pdftex.def)             Requested size: 258.0pt x 136.87839pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 131--132
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+
+Underfull \hbox (badness 1622) in paragraph at lines 142--143
+\OT1/ptm/m/n/10 stages: back-pro-jec-tion, sparse ten-sor con-struc-tion, sparse
+ []
+
+
+Underfull \hbox (badness 5832) in paragraph at lines 142--143
+\OT1/ptm/m/n/10 3D con-vo-lu-tional re-fine-ment, and voxel-wise se-man-tic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 144--146
+\OT1/ptm/m/n/10 un-nec-es-sary com-pu-ta-tion over empty space and en-ables
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
+
+ []
+
+[8 <./Figures/FFAM++.pdf>]
+
+pdfTeX warning: pdflatex (file ./Figures/Refinement_Module.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/Refinement_Module.pdf, id=202, 486.85887pt x 258.0039pt>
+File: Figures/Refinement_Module.pdf Graphic file (type pdf)
+<use Figures/Refinement_Module.pdf>
+Package pdftex.def Info: Figures/Refinement_Module.pdf  used on input line 152.
+(pdftex.def)             Requested size: 258.0pt x 136.72566pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 152--153
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
+
+ []
+
+[9 <./Figures/Refinement_Module.pdf>]
+
+pdfTeX warning: pdflatex (file ./Figures/Semantic_descriptor_learning_module.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/Semantic_descriptor_learning_module.pdf, id=225, 850.13606pt x 394.3533pt>
+File: Figures/Semantic_descriptor_learning_module.pdf Graphic file (type pdf)
+<use Figures/Semantic_descriptor_learning_module.pdf>
+Package pdftex.def Info: Figures/Semantic_descriptor_learning_module.pdf  used on input line 241.
+(pdftex.def)             Requested size: 516.0pt x 239.3577pt.
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:0.0pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 0.0pt
+Output:0.0pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:696.0pt
+CUTED [output]: 0.0pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--301
+\OT1/ptm/m/n/10 their global se-man-tic dis-tri-bu-tions. The math-e-mat-i-cal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--301
+
+ []
+
+[10 <./Figures/Semantic_descriptor_learning_module.pdf>]
+Underfull \hbox (badness 3078) in paragraph at lines 319--321
+\OT1/ptm/m/n/10 The third term of Eq. 37[] rep-re-sents the cross-modal
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 319--321
+\OT1/ptm/m/n/10 learns a shared em-bed-ding space in which de-scrip-tors
+ []
+
+
+Underfull \hbox (badness 4205) in paragraph at lines 319--321
+\OT1/ptm/m/n/10 from dif-fer-ent modal-i-ties rep-re-sent-ing the same scene
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
+
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 329--331
+\OT1/ptm/m/n/10 scales and op-ti-mizes dis-tinct prop-er-ties of the learned
+ []
+
+
+Underfull \hbox (badness 2277) in paragraph at lines 329--331
+\OT1/ptm/m/n/10 a trade-off be-tween de-scrip-tor dis-crim-inabil-ity, se-man-tic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--331
+
+ []
+
+) (Sections/4.Results.tex
+Underfull \hbox (badness 1748) in paragraph at lines 11--13
+\OT1/ptm/m/n/10 car, pedes-trian, by-ci-cle, and traffic-related struc-tures. In
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+\OT1/ptm/m/n/10 for im-age pro-cess-ing. Many state-of-the-art se-man-tic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 19--22
+
+ []
+
+) (Sections/5.Conclusions.tex)
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 23.
+ (C:\Users\MARTHA MADRID\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 6032) in paragraph at lines 25--25
+[]\OT1/ptm/m/n/8 F. S[]anchez-Garc[]^^Pa, S. Montiel-Mar[]^^Pn, M. Antunes-Garcia, R.
+ []
+
+[12]
+Underfull \hbox (badness 2495) in paragraph at lines 25--25
+[]\OT1/ptm/m/n/8 T. Cort-in-hal, G. Tzelepis, and E. E. Ak-soy, \OT1/ptm/m/it/8 Sal-sanext: Fast,
+ []
+
+[13] (main.aux (Sections/MyData.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 41062 strings out of 467867
+ 1014767 string characters out of 5414427
+ 1997834 words of memory out of 5000000
+ 69289 multiletter control sequences out of 15000+600000
+ 670416 words of font info for 122 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 95i,18n,99p,2021b,1276s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/MARTHA MADRID/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (13 pages, 22753031 bytes).
+PDF statistics:
+ 340 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+

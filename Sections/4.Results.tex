@@ -1,1 +1,32 @@
+%********************************************************************************
 \section{Experiments and Results} \label{sec:results}
+%********************************************************************************
+
+This section describes the results obtained based on different experiments.
+
+%----------------------------------------------------
+\subsection{Dataset}~\label{subsec:dataset}
+%----------------------------------------------------
+
+In this study, we selected the SemanticKITTI dataset, a large scale vehicular scene point cloud dataset, for our experimental analysis. This dataset is a large-scale benckmark desgined for semantic scene understanding using LiDAR data in urban driving environments. It is built upon the raw point cloud sequences of the KITTI Vision Benchmark Suite and provides dense point-wise semantic annotation for all LiDAR scans in the odometry sequences. The dataset contains 19,130 frames for training, 4071 frames for validity, and 24,892 frames for testing. We treated train–valid–test sequences and 19 categories which are consistent with the benchmark algorithms. 
+The dataset includes road, building, vegetation, car, pedestrian, bycicle, and traffic-related structures. In addition, it also provides precise vehicle poses, enabling the study of temporal consistency localization, and mapping tasks. \\
+
+A key characteristic of SemanticKITTI is that the point clouds are typically represented in a range-view projection, where the 3D LiDAR measurements are mapped onto a 2D cylindrical image according to the sensor’s azimuth and elevation angles. This representation preserves the structured acquisition pattern of rotating LiDAR sensors and allows the use of convolutional neural networks originally developed for image processing. Many state-of-the-art semantic segmentation approaches operate in this representation before optionally projecting the predictions back to the 3D space. \\
+
+In the context of this work, SemanticKITTI serves as the primary benchmark for evaluating the proposed global descriptor generation framework for urban environment. The dataset provides both the geometric structure pf large-scale urban scenes and the semantic information required to build semantically-aware descriptors. Specifically, the LiDAR scans are processed through a multi-modal perception pipeline where fused features derived from LiDAR and camera observations are used to generate semantic feature maps. These features are then back-projected to the 3D space and refined to produce a semantic point cloud representation, from which compact global descriptors are extracted.
+
+%------------------------------------------------------------------------------
+\subsection{Implementation Details}~\label{subsec:implementation-details}
+%------------------------------------------------------------------------------
+For the experiments on the Semantic KITTI dataset, we used a machine equipped with Intel i9-14900K CPU and an NVIDIA GeForce RTX TITAN 24GB GPU. We implemented the proposed method in PyTorch~\cite{paszke2019pytorchimperativestylehighperformance},using ResNet-34~\cite{he2015deepresiduallearningimage} and SalsaNext~\cite{cortinhal2024salsanextfastuncertaintyawaresemantic} as the backbones for the camera stream and LiDAR stream, respectively. The parameters of ResNet-34 were initialized with a pretrained ImageNet model \cite{deng2009imagenet}. The network was trained for 20 epochs. \\
+
+The training process starts with an initial learning rate of 0.001, which is progressively adapted during optimization using a warmup-cosine scheduling strategy. This approach combines an inicial warmup phase with a cosine annealing decay, allowing the learning rate to increase gradually at the beginning of training and then decrease smoothly as training progresses.
+During the warmup stage, the learning rate is linearly increased from a very small value to the target learning rate. This phase lasts for a predefined number of iterations determined by:
+\begin{equation}
+    N_{warmup} = E_{warmup} \times |D_{train}|
+\end{equation}
+where $E_{warmup}$ represents the number of warmup epochs and $|D_{train}|$ corresponds to the number of mini-batches in the training dataloader. After the warmup period, the learning rate follows a cosine annealing schedule, which gtadually reduces the learning rate according to:
+\begin{equation}
+    \eta_t = \eta_0 \cdot \frac{1}{2} \left (1 + \cos \left (\frac{\pi t}{T_{max}} \right ) \right )
+\end{equation}
+The batch size was set to 4 for training stage and 2 for validation stage. To prevent overﬁtting, we employed various data augmentation strategies, including random horizontal ﬂipping, color jittering, 2-D random rotation, and random cropping.
