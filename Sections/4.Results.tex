@@ -2,31 +2,446 @@
 \section{Experiments and Results} \label{sec:results}
 %********************************************************************************
 
-This section describes the results obtained based on different experiments.
+This section presents the experimental protocol and results for semantic segmentation, descriptor retrieval, cross-method comparison, and component analysis.
 
 %----------------------------------------------------
 \subsection{Dataset}~\label{subsec:dataset}
 %----------------------------------------------------
 
-In this study, we selected the SemanticKITTI dataset, a large scale vehicular scene point cloud dataset, for our experimental analysis. This dataset is a large-scale benckmark desgined for semantic scene understanding using LiDAR data in urban driving environments. It is built upon the raw point cloud sequences of the KITTI Vision Benchmark Suite and provides dense point-wise semantic annotation for all LiDAR scans in the odometry sequences. The dataset contains 19,130 frames for training, 4071 frames for validity, and 24,892 frames for testing. We treated train–valid–test sequences and 19 categories which are consistent with the benchmark algorithms. 
-The dataset includes road, building, vegetation, car, pedestrian, bycicle, and traffic-related structures. In addition, it also provides precise vehicle poses, enabling the study of temporal consistency localization, and mapping tasks. \\
+SemanticKITTI is a large-scale benchmark for semantic understanding of LiDAR sequences in urban driving environments. It extends the KITTI odometry sequences with dense point-wise annotations for 19 evaluated classes. Following the official split, sequences 00--07, 09, and 10 are used for training, sequence 08 is used exclusively for validation, and sequences 11--21 form the hidden-label test set. The training and validation portions contain 19,130 and 4,071 scans, respectively. KITTI poses are used only to define spatial positives and retrieval errors; they are not inputs to the descriptor.
 
-A key characteristic of SemanticKITTI is that the point clouds are typically represented in a range-view projection, where the 3D LiDAR measurements are mapped onto a 2D cylindrical image according to the sensor’s azimuth and elevation angles. This representation preserves the structured acquisition pattern of rotating LiDAR sensors and allows the use of convolutional neural networks originally developed for image processing. Many state-of-the-art semantic segmentation approaches operate in this representation before optionally projecting the predictions back to the 3D space. \\
+A key characteristic of SemanticKITTI is that point clouds can be represented in a range-view projection, where 3D LiDAR measurements are mapped onto a 2D cylindrical image according to the sensor azimuth and elevation angles. This representation preserves the structured acquisition pattern of rotating LiDAR sensors and enables convolutional processing. Many semantic segmentation methods operate in this representation before optionally projecting their predictions back to 3D. \\
 
-In the context of this work, SemanticKITTI serves as the primary benchmark for evaluating the proposed global descriptor generation framework for urban environment. The dataset provides both the geometric structure pf large-scale urban scenes and the semantic information required to build semantically-aware descriptors. Specifically, the LiDAR scans are processed through a multi-modal perception pipeline where fused features derived from LiDAR and camera observations are used to generate semantic feature maps. These features are then back-projected to the 3D space and refined to produce a semantic point cloud representation, from which compact global descriptors are extracted.
+The LiDAR scans are paired with the synchronized KITTI \texttt{image\_2} camera stream through the provided calibration. The panoramic multi-camera procedure in Section~\ref{subsec:panoramic-image-generation} describes the intended deployment pipeline, whereas the SemanticKITTI experiments use this calibrated KITTI camera view. Projected LiDAR and RGB observations are processed by the multimodal network, transferred to the point domain, and aggregated into global descriptors.
 
 %------------------------------------------------------------------------------
 \subsection{Implementation Details}~\label{subsec:implementation-details}
 %------------------------------------------------------------------------------
-For the experiments on the Semantic KITTI dataset, we used a machine equipped with Intel i9-14900K CPU and an NVIDIA GeForce RTX TITAN 24GB GPU. We implemented the proposed method in PyTorch~\cite{paszke2019pytorchimperativestylehighperformance},using ResNet-34~\cite{he2015deepresiduallearningimage} and SalsaNext~\cite{cortinhal2024salsanextfastuncertaintyawaresemantic} as the backbones for the camera stream and LiDAR stream, respectively. The parameters of ResNet-34 were initialized with a pretrained ImageNet model \cite{deng2009imagenet}. The network was trained for 20 epochs. \\
+Experiments were conducted on an AMD Ryzen Threadripper 2920X CPU and an NVIDIA TITAN RTX 24\,GB GPU. The framework was implemented in PyTorch~\cite{paszke2019pytorchimperativestylehighperformance}, using ResNet-34~\cite{he2015deepresiduallearningimage} and SalsaNext~\cite{cortinhal2024salsanextfastuncertaintyawaresemantic} for the camera and LiDAR streams. ResNet-34 was initialized with ImageNet weights~\cite{deng2009imagenet}. Training followed five functional stages: multimodal fusion (epochs 1--30), point-level refinement (31--60), joint fusion--refinement stabilization (61--65), refinement--descriptor transition (66--79), and final joint fine-tuning (80--115).
 
-The training process starts with an initial learning rate of 0.001, which is progressively adapted during optimization using a warmup-cosine scheduling strategy. This approach combines an inicial warmup phase with a cosine annealing decay, allowing the learning rate to increase gradually at the beginning of training and then decrease smoothly as training progresses.
+The LiDAR/fusion and descriptor optimizers start at $10^{-4}$, the refinement optimizer at $10^{-3}$, and the auxiliary image optimizer at $5\times10^{-6}$. Learning rates are adapted with a one-epoch warmup followed by cosine annealing.
 During the warmup stage, the learning rate is linearly increased from a very small value to the target learning rate. This phase lasts for a predefined number of iterations determined by:
 \begin{equation}
     N_{warmup} = E_{warmup} \times |D_{train}|
 \end{equation}
-where $E_{warmup}$ represents the number of warmup epochs and $|D_{train}|$ corresponds to the number of mini-batches in the training dataloader. After the warmup period, the learning rate follows a cosine annealing schedule, which gtadually reduces the learning rate according to:
+where $E_{warmup}$ represents the number of warmup epochs and $|D_{train}|$ corresponds to the number of mini-batches in the training dataloader. After warmup, cosine annealing gradually reduces the learning rate according to
 \begin{equation}
     \eta_t = \eta_0 \cdot \frac{1}{2} \left (1 + \cos \left (\frac{\pi t}{T_{max}} \right ) \right )
 \end{equation}
-The batch size was set to 4 for training stage and 2 for validation stage. To prevent overﬁtting, we employed various data augmentation strategies, including random horizontal ﬂipping, color jittering, 2-D random rotation, and random cropping.
+The batch size was 4 for training and 2 for validation. SGMD uses a 128-dimensional hidden representation, a 256-dimensional output descriptor, at most 8,192 sampled points per observation, an InfoNCE temperature of 0.07, and a contrastive-loss weight of 0.1. Data augmentation includes geometric perturbations of the projected LiDAR representation and RGB color jittering. Validation sequence 08 is never used for parameter optimization.
+
+\subsection{Evaluation Metrics}~\label{subsec:evaluation-metrics}
+The evaluation protocol follows the two-stage structure of the proposed framework. The first group of metrics evaluates semantic segmentation and refinement, while the second evaluates the semantic descriptor as a retrieval and candidate-generation module. This separation is necessary because segmentation metrics measure point-wise semantic prediction, whereas descriptor metrics characterize the ranking of candidate frames or submaps. \\
+
+\subsubsection{Semantic Segmentation Metrics} ~\label{subsubsec:semantic-segmentation-metric}
+For the semantic segmentation stage, we report complementary 2D and 3D metrics. The internal 2D/range-view metric evaluates the network output in its training representation and is reported as mean Intersection over Union:
+\begin{equation}
+    \mathrm{mIoU}_{2D} = \frac{1}{|\mathcal{C}|}\sum_{c \in \mathcal{C}}
+    \frac{TP_c}{TP_c + FP_c + FN_c},
+\end{equation}
+where $\mathcal{C}$ is the set of evaluated semantic classes, and $TP_c$, $FP_c$, and $FN_c$ denote true positives, false positives, and false negatives for class $c$.
+
+The native point-level metric evaluates refinement logits directly against the corresponding point labels (\texttt{labels\_pts}) retained by the sparse pipeline. We denote this quantity by $\mathrm{mIoU}_{3D\text{-native}}$. It is the point-level metric used for the final joint checkpoints and for the comparison with per-class SemanticKITTI results.
+
+A separate external audit evaluates exported predictions after projection, sparse processing, voxelization/backprojection, and label assignment. Predicted 3D points are matched with the original SemanticKITTI ground truth using a nearest-neighbor KDTree protocol:
+\begin{equation}
+    \hat{y}_i \leftrightarrow y_j
+    \quad \text{if} \quad
+    \|\mathbf{p}_i - \mathbf{q}_j\|_2 < r,
+\end{equation}
+where $\mathbf{p}_i$ is a predicted 3D point, $\mathbf{q}_j$ is the nearest ground-truth point, and $r=0.05$ m is the matching radius used in the audit.
+
+The external audit reports:
+\begin{itemize}
+    \item \textbf{Audit mIoU}: global mIoU over 19 SemanticKITTI mapped classes, ignoring the unlabeled class.
+    \item \textbf{Long-term mIoU}: mIoU over sidewalk, building, fence, vegetation, trunk, terrain, pole, and traffic-sign.
+    \item \textbf{Landmark mIoU}: mIoU over building, trunk, pole, and traffic-sign.
+\end{itemize}
+
+The native point-level evaluation and the external KDTree audit have different point support and must not be compared as if they were the same metric. The former is used to report final checkpoint performance; the latter is retained as an internal diagnostic for the early fusion/refinement configurations.
+
+The road class is included in global mIoU but excluded from the Long-term and Landmark readings because it dominates the scene and is weakly distinctive for long-term semantic mapping. Precision, recall, and F1-score may also be computed from the same class-wise confusion counts, but they are treated as secondary segmentation diagnostics because mIoU is the main comparison metric for SemanticKITTI-style semantic segmentation. \\
+Here, ``Long-term mIoU'' is a task-oriented class grouping, not evidence of cross-session or long-term localization performance.
+
+\subsubsection{Descriptor Metrics}~\label{subsubsec:descriptor-metrics}
+The descriptor stage is evaluated separately from semantic segmentation. Its objective is not to assign a semantic label to each point, but to compress the semantic--spatial content of a frame or submap into a global descriptor that retrieves and ranks candidate scenes.
+The local descriptor is defined as:
+\begin{equation}
+    \mathbf{D}_{local} \in \mathbb{R}^{N \times D},
+\end{equation}
+where $N$ is the number of semantic or geometric elements and $D$ is the descriptor dimension. The global descriptor is obtained after semantic attention aggregation:
+
+\begin{equation}
+    \mathbf{d}_{global} \in \mathbb{R}^{1 \times D}.
+\end{equation}
+The descriptor evaluation reports the following metrics:
+
+\begin{itemize}
+    \item \textbf{Recall@K}: fraction of queries for which at least one spatially valid candidate appears within the top $K$ retrieved descriptors. This metric is computed under spatial thresholds such as 5 m, 10 m, and 20 m.
+    \item \textbf{Candidate Recall@K}: the same retrieval principle evaluated at larger values of $K$, measuring whether a spatially valid observation is preserved in the candidate shortlist.
+    \item \textbf{MRR}: Mean Reciprocal Rank of the first spatially valid candidate. This measures how early the first correct candidate appears in the ranking.
+    \item \textbf{First positive rank}: median or distribution of the rank position of the first spatially valid candidate.
+    \item \textbf{Best spatial error@K}: minimum spatial distance between the query and any candidate retrieved within the top $K$.
+    \item \textbf{Positive-negative similarity separation}: comparison between cosine similarity for positive pairs, typically spatial distance $\leq 10$ m, and negative pairs, typically spatial distance $\geq 50$ m. Similarity ROC-AUC measures the probability that a positive pair receives a higher similarity than a negative pair.
+    \item \textbf{F1-score and PR-AUC}: secondary binary-classification metrics obtained by thresholding descriptor similarity. These metrics are reported with caution because the descriptor is not intended to be the final loop-closure classifier.
+    \item \textbf{Mean Submap Semantic Consistency@K}: average semantic agreement between the query submap and the retrieved top-$K$ submaps.
+    \item \textbf{Mean Submap Landmark Consistency@K}: average agreement restricted to persistent landmark-like semantic evidence. 
+\end{itemize}
+
+Frame-level and submap-level retrieval are evaluated separately. The frame setting is stricter and more sensitive to occlusion and single-scan ambiguity, while the submap setting aggregates local temporal context and provides a more stable descriptor for candidate retrieval.
+Retrieval is performed independently within each sequence. Candidates whose centers are within 50 original frames of the query are excluded to avoid trivial temporal neighbors. Submaps contain 20 consecutive frames with stride 10; the same exclusion is applied to their center-frame indices. Spatial positives are defined using KITTI poses at 5\,m, 10\,m, and 20\,m thresholds.
+
+Semantic and landmark consistency connect descriptor retrieval back to the segmentation stage. For this post-retrieval evaluation, each submap is represented by an L2-normalized histogram of its SemanticKITTI reference labels. The broad semantic signature uses all evaluated classes, whereas the landmark signature retains building, trunk, pole, and traffic-sign (class indices 13, 16, 18, and 19). These reference signatures are used only to evaluate the rankings and are computed identically for every retrieval method. Let $\mathbf{q}$ be the normalized signature of a query and $\mathbf{c}_r$ the corresponding signature of the candidate at rank $r$. Consistency is the mean cosine agreement in the retrieved list,
+\begin{equation}
+    \mathrm{Consistency@K}
+    =
+    \frac{1}{K}\sum_{r=1}^{K}\mathbf{q}^{\mathsf{T}}\mathbf{c}_r.
+\end{equation}
+Semantic Consistency uses the broad scene signature, whereas Landmark Consistency uses the four-class landmark signature. These metrics characterize the semantic quality of a ranking but do not establish spatial correctness. Results averaged across sequences are therefore reported as diagnostic analyses, while sequence 08 is the primary unseen-validation result.
+
+\subsection{Experiments on the SemanticKITTI Dataset}~\label{subsec:experiments-kitti}
+
+The evaluation is organized into two connected stages. The first stage evaluates the semantic segmentation pipeline, where LiDAR, RGB information, 2D fusion, and point-level refinement are progressively integrated. It reports internal 2D mIoU, native point-level 3D mIoU, the separate external audit, Long-term mIoU, Landmark mIoU, and per-class IoU.
+
+The second stage evaluates the semantic descriptor generated from the multimodal representation. 
+
+\begin{figure*}[t]
+	\centering
+	\includegraphics[width=\linewidth]{Figures/Semantic-Seg-Results.pdf} 	
+	\caption{Semantic segmentation results on SemanticKITTI sequence 08. (a) Joint-stage 2D semantic prediction. (b) Bird's-eye-view point-level diagnostic of the refinement module.}	
+	\label{fig:Semantic-Seg-Results}
+\end{figure*}
+
+\begin{table*}[t]
+\centering
+\caption{Native validation metrics for the final joint checkpoints on
+SemanticKITTI sequence 08. The point-level values are computed directly
+against the labels retained by the sparse refinement pipeline.}
+\label{tab:semantic-segmentation-results}
+\small
+\begin{tabular}{lccccccrc}
+\hline
+Checkpoint & \multicolumn{1}{r}{2D mIoU} & \multicolumn{1}{r}{3D mIoU} & \multicolumn{1}{r}{Long-term} & \multicolumn{1}{r}{Landmark} & \multicolumn{1}{r}{Building} & \multicolumn{1}{r}{Trunk} & Pole & \multicolumn{1}{r}{Traffic-sign} \\ \hline
+Epoch 100 & \textbf{0.5575} & \textbf{0.5670} & \textbf{0.7104} & 0.6606 & \textbf{0.8911} & 0.6954 & \textbf{0.6407} & 0.4150 \\
+Epoch 102 & 0.5528 & 0.5635 & 0.7010 & \textbf{0.6622} & 0.8873 & \textbf{0.7010} & 0.6381 & \textbf{0.4222} \\
+Epoch 112 & 0.5419 & 0.5497 & 0.7008 & 0.6510 & 0.8868 & 0.6688 & 0.6396 & 0.4091 \\ \hline
+\end{tabular}
+\end{table*}
+
+In this stage, the descriptor is not treated as a final loop-closure classifier, but as a global scene representation for retrieval and candidate generation. Its behavior is measured with retrieval and descriptor metrics such as Recall@K, Candidate Recall@K, MRR, first positive rank, best spatial error, positive-negative similarity separation, and semantic or landmark consistency@K.
+This two-stage organization is important because the two parts of the system answer different experimental questions. The segmentation stage asks whether the model produces reliable static and landmark semantic evidence. 
+The descriptor stage asks whether that semantic evidence can be compressed into a global representation that retrieves useful frame or submap candidates.
+The stages are therefore linked: the quality of the semantic segmentation supports the construction of meaningful descriptors, while the descriptor metrics evaluate whether those semantics remain useful at the retrieval level.
+
+\subsubsection{Semantic Segmentation Result}~\label{subsubsec:semantic-segmentation-result}
+The final segmentation evaluation was carried out on SemanticKITTI sequence 08, as depicted in Fig.~\ref{fig:Semantic-Seg-Results}. Panel (a) compares RGB, ground truth, and range-view fusion prediction. Panel (b) examines the subset of points processed by refinement and distinguishes corrected, degraded, and unchanged predictions. This local diagnostic shows structured corrections on the selected frames, but it is not used as evidence of a sequence-level mIoU improvement.
+
+Table~\ref{tab:semantic-segmentation-results} reports only the native evaluator for the final joint checkpoints. Epoch 100 obtains the best native 3D mIoU (0.5670) and Long-term mIoU (0.7104), whereas epoch 102 obtains the best Landmark mIoU (0.6622). Early component configurations evaluated through the external KDTree audit are reported separately in the ablation study; their audit values are not mixed with the native point-level results in this table.
+
+\subsubsection{Semantic Descriptor Result}~\label{subsubsec:semantic-descriptor-result}
+The semantic descriptor was evaluated after the segmentation pipeline reached a stable stage. Rather than using the descriptor as a final loop-closure classifier, we assessed it as a candidate generator. Specifically, the descriptor retrieves a Top-K set of candidates under two evaluation strategies: frame-level and submap-level.
+In the frame-level setting, each individual LiDAR/RGB observation is treated as both a query and a candidate. This constitutes a strict evaluation protocol, as it is highly sensitive to occlusions, sensor noise, and single-frame ambiguities, which often lead to unstable matching results.
+In contrast, the submap-level strategy aggregates consecutive frames into a single candidate unit. In our evaluation, each submap consists of 20 frames with a stride of 10 frames. The submap descriptor is computed by averaging and subsequently normalizing the individual frame descriptors, while the submap pose is defined as the average of the local poses. The submap representation was consistently more stable than the individual-frame representation.
+
+Figure~\ref{fig:Semantic-Descriptor-Results_p1} shows that submap-based retrieval provides a more reliable candidate generation mechanism than frame-level retrieval. Although frame descriptors can occasionally produce lower median spatial error, submaps consistently improve Candidate Recall@K across sequences. This indicates that temporal aggregation stabilizes the descriptor representation and increases the probability of preserving spatially valid candidates in the retrieved set. Therefore, the descriptor should be interpreted as a semantic-spatial candidate generator rather than as a standalone Top-1 loop-closure detector. \\
+Figure~\ref{fig:Semantic-Descriptor-Results_p2} shows that the proposed semantic global descriptor encodes useful spatial and semantic structure across SemanticKITTI sequences. The best spatial error decreases or stabilizes as the number of retrieved candidates increases, while Candidate Recall@K improves consistently with larger candidate sets. The positive-negative similarity distributions indicate that nearby places tend to obtain higher descriptor similarity than distant places, although some overlap remains. Likewise, the distance-wise similarity curves show a general decay of similarity with spatial distance, but not a strictly monotonic relationship. These results support the interpretation of the descriptor as a candidate retrieval module rather than a standalone loop-closure decision mechanism. 
+
+Sequence-08 descriptor statistics are summarized in Table~\ref{tab:descriptor-evaluation-seq-08}. The mean positive similarity is 0.4937, the mean negative similarity is 0.2682, and their gap is 0.2255. The similarity ROC-AUC is 0.7558, indicating useful pair separation but insufficient discrimination for standalone loop-closure detection.
+
+\begin{table}[t]
+\centering
+\caption{\scriptsize\MakeUppercase{Descriptor similarity diagnostics on sequence 08}}
+\label{tab:descriptor-evaluation-seq-08}
+\begin{tabular}{ll}
+\hline
+\textbf{Positive similarity} & 0.4937 \\
+\textbf{Negative similarity} & 0.2682 \\
+\textbf{Gap} & 0.2255 \\
+\textbf{Cohen's $d$} & 1.1054 \\
+\textbf{Similarity ROC-AUC} & 0.7558 \\
+\textbf{Spearman $\rho$} & $-0.0356$ \\ \hline
+\end{tabular}
+\end{table}
+
+The validation sequence 08 again shows the weakest separation. 
+
+\begin{figure*}[p]
+	\centering
+	\includegraphics[width=\linewidth]{Figures/Semantic-Descriptor-Result_part 1.pdf} 	
+	\caption{Frame- and submap-level candidate retrieval across SemanticKITTI sequences: (a) spatial error and (b) Recall@K.}	
+	\label{fig:Semantic-Descriptor-Results_p1}
+\end{figure*}
+
+\begin{figure*}[p]
+	\centering
+	\includegraphics[width=\linewidth]{Figures/Semantic-Descriptor-Result_part 2.pdf} 	
+	\caption{Multi-metric evaluation of SGMD across SemanticKITTI sequences: (a) best spatial error, (b) Candidate Recall@K, (c) positive--negative similarity distribution, (d) similarity as a function of spatial distance, (e) frame-level Recall@K, and (f) submap-level Recall@K.}	
+	\label{fig:Semantic-Descriptor-Results_p2}
+\end{figure*}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\textwidth]{Figures/Descriptor_vs_SpatialRecall.pdf} 	
+	\caption[Top-K Candidate Generation Performance]{Top-K candidate generation performance: semantic consistency and spatial recall.}	
+	\label{fig:top-k-candidate-generation-performance}
+\end{figure}
+
+Its similarity ROC-AUC is above random, indicating useful pairwise separation, but the Spearman correlation is close to zero. Therefore, descriptor similarity separates close and far pairs to some extent, but it does not encode spatial distance monotonically enough to be used as the final decision.
+The previous retrieval metrics evaluate whether a candidate is spatially close to the query. \\
+A complementary question is whether the retrieved candidates are semantically consistent with the query, even when they are not the closest spatial match. 
+
+For this purpose, two submap-level consistency metrics were computed over the retrieved Top-K candidates:
+\begin{itemize}
+    \item \textbf{Semantic Consistency@K}: average agreement between the broad semantic signatures of the query submap and its retrieved submaps.
+    \item \textbf{Landmark Consistency@K}: average agreement restricted to persistent landmark-like evidence.
+\end{itemize}
+
+Figure~\ref{fig:top-k-candidate-generation-performance} contrasts two different properties of the ranking. Semantic and Landmark Consistency remain above 0.95 and vary only moderately with $K$, indicating that the retrieved candidates preserve similar semantic composition. Spatial Recall@K is substantially lower and increases as the candidate set grows, particularly at the relaxed distance thresholds. Therefore, high semantic agreement must not be interpreted as high spatial localization accuracy.
+The gap between the curves shows that SGMD is biased toward contextual and landmark-level similarity rather than absolute position. This behavior supports its use as a semantic candidate generator and defines the boundary between semantic ranking and spatial place recognition.
+
+\subsection{Comparison with State-of-the-Art Methods}~\label{subsec:comparison-sota}
+Because the proposed framework addresses two different tasks, the comparison is divided into semantic segmentation and descriptor retrieval. The segmentation output is compared on SemanticKITTI sequence 08. For descriptors, strict spatial comparisons are restricted to methods evaluated with the matched submap protocol. Learned baselines extracted with different pretrained weights or sampling density are retained only as analytical references in the semantic-consistency comparison and are not used to claim a definitive spatial ranking.
+
+\subsubsection{Semantic Segmentation Comparison}~\label{subsubsec:semantic-segmentation-comparison}
+
+Table~\ref{tab:semantic-kitti-task-oriented-comparison} shows that VPA-Net achieves the highest overall, Long-term, and Landmark mIoU. The proposed method obtains 56.70\% native point-level mIoU, 71.04\% Long-term mIoU, and 66.06\% Landmark mIoU. It therefore does not establish overall segmentation superiority, although its persistent-class averages remain competitive within this comparison. These grouped scores motivate their use as task-oriented diagnostics for descriptor construction; they do not compensate for the lower overall mIoU.
+
+\begin{table}[t]
+  \centering
+  \caption{Task-oriented semantic segmentation comparison on the
+  SemanticKITTI validation sequence. The proposed result uses the native
+  point-level evaluator. All values are percentages. L and C
+  denote LiDAR and camera input, respectively. The best result is shown in
+  bold and the second-best result is underlined.}
+  \label{tab:semantic-kitti-task-oriented-comparison}
+  \small
+  \setlength{\tabcolsep}{2.7pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Method & Input & mIoU$\uparrow$ & Long-term$\uparrow$ & Landmark$\uparrow$ \\
+    \midrule
+    RandLANet~\cite{hu2020randlanetefficientsemanticsegmentation}    & L   & 56.80 & 67.39 & 61.88 \\
+    RangeNet53++~\cite{milioto2019iros} & L   & 43.50 & 54.89 & 42.32 \\
+    SqueezeSegV3~\cite{xu2020squeezesegv3} & L   & 40.10 & 57.25 & 48.45 \\
+    SalsaNext~\cite{cortinhal2024salsanextfastuncertaintyawaresemantic}    & L   & 54.10 & 61.85 & 55.28 \\
+    Cylinder3D~\cite{zhou2020cylinder3deffective3dframework}   & L   & 60.30 & 69.59 & 65.27 \\
+    PMF~\cite{Tan2024}          & L+C & 59.60 & 70.60 & \underline{66.82} \\
+    2DPASS~\cite{yan20222dpass2dpriorsassisted}       & L+C & \underline{61.10} & 67.89 & 64.57 \\
+    VPA-Net~\cite{Lin2025}      & L+C & \textbf{61.20} & \textbf{72.42} & \textbf{69.18} \\
+    \midrule
+    \textbf{Ours (FFAM++ + Refine)}
+                 & \textbf{L+C} & 56.70 & \underline{71.04} & 66.06 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{1mm}
+
+  \parbox{\columnwidth}{\footnotesize
+  Long-term mIoU averages sidewalk, building, fence, vegetation, trunk,
+  terrain, pole, and traffic-sign. Landmark mIoU averages building, trunk,
+  pole, and traffic-sign. For the reference methods, both grouped metrics
+  were recomputed from their reported per-class IoU values using these same
+  class definitions.}
+\end{table}
+
+\subsubsection{Global Descriptor Comparison}~\label{subsubsec:global-descriptor-comparison}
+
+The matched-protocol spatial comparison includes Scan Context~\cite{Kim2018ScanCE}, M2DP~\cite{HeLiWang2016}, SGMD, and SGMD with landmark re-ranking. Table~\ref{tab:seq08-spatial-descriptor-comparison} reports Recall@20 on the unseen sequence 08. Scan Context and M2DP are substantially stronger at 5\,m and 10\,m, confirming that the proposed representation is not a replacement for geometry-based place recognition. SGMD becomes closer to the handcrafted baselines at the relaxed 20\,m threshold. Landmark re-ranking improves SGMD at 5\,m and 10\,m, but decreases Recall@20 at 20\,m.
+
+\begin{table}[t]
+\centering
+\caption{Matched-protocol submap Recall@20 on validation sequence 08.
+All methods use the same queries, candidate pool, temporal exclusion, and
+20-frame submaps.}
+\label{tab:seq08-spatial-descriptor-comparison}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Method & 5\,m & 10\,m & 20\,m \\
+\midrule
+Scan Context~\cite{Kim2018ScanCE} & \textbf{0.9744} & \textbf{0.9390} & \textbf{0.7143} \\
+M2DP~\cite{HeLiWang2016} & 0.8974 & 0.8659 & 0.6316 \\
+SGMD (ours) & 0.2564 & 0.4512 & 0.6617 \\
+SGMD + landmark (ours) & 0.3077 & 0.5244 & 0.6316 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The complementary consistency analysis also includes MinkLoc3D~\cite{komorowski2020minkloc3dpointcloudbased} and OverlapTransformer~\cite{ma2022ral}. These learned baselines use pretrained models and different descriptor-extraction densities; their values are therefore analytical references rather than a strictly matched leaderboard. For every method, consistency is computed after retrieval using the same semantic reference-signature definition.
+
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Figures/Result_descriptors_comparison.pdf} 	
+	\caption{Cross-method analysis of semantic consistency. (a) Mean Submap Landmark Consistency@K. (b) Mean Submap Semantic Consistency@K. Means include sequences 00, 02, 05, 06, 07, and 08; sequence 08 is the unseen validation sequence. Learned baselines use their available pretrained extraction protocols.}
+	\label{fig:Semantic-Descriptor-Results_comparison}
+\end{figure*}
+
+%\renewcommand{\arraystretch}{0.99}
+\begin{table*}[!t]
+\centering
+\caption{Cross-method Semantic and Landmark Consistency@K. These values
+characterize semantic agreement after retrieval and are not spatial
+Recall@K results.}
+\label{tab:semantic-descriptor-result}
+\begin{tabular}{ccccccc}
+\hline
+\rowcolor[HTML]{FFFFFF} 
+\textbf{Method} & \textbf{\begin{tabular}[c]{@{}c@{}}Semantic\\ @1\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Semantic\\ @20\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Semantic\\ @100\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Landmark\\ @1\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Landmark\\ @20\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Landmark\\ @100\end{tabular}} \\ \hline
+Scan Context~\cite{Kim2018ScanCE} & 0.9739 & 0.9682 & \textbf{0.9626} & 0.9945 & 0.9929 & 0.9914 \\
+M2DP~\cite{HeLiWang2016} & 0.9736 & 0.9667 & 0.9618 & 0.9947 & 0.9930 & 0.9917 \\
+MinkLoc3D~\cite{komorowski2020minkloc3dpointcloudbased} & 0.8568 & 0.8183 & 0.7805 & 0.9292 & 0.9118 & 0.8935 \\
+Overlap Transformer~\cite{ma2022ral} & 0.8540 & 0.8042 & 0.7658 & 0.9219 & 0.8905 & 0.8705 \\ \hline
+\textbf{SGMD (ours)} & 0.9730 & 0.9643 & 0.9595 & 0.9946 & 0.9926 & 0.9911 \\ \hline
+\textbf{SGMD + landmark (ours)} & \textbf{0.9782} & \textbf{0.9690} & 0.9610 & \textbf{0.9979} & \textbf{0.9955} & \textbf{0.9919} \\ \hline
+\end{tabular}
+\end{table*}
+%\renewcommand{\arraystretch}{1.0}
+
+Across the six analyzed sequences, landmark re-ranking increases the reported semantic and landmark consistency values, with the largest descriptive differences at early ranks. Because re-ranking uses a landmark-derived signal, this result is expected and must be interpreted together with the independent spatial results in Table~\ref{tab:seq08-spatial-descriptor-comparison}. On validation sequence 08, direct SGMD obtains Top-1 landmark consistency of 0.9938, while SGMD with landmark re-ranking obtains 0.9979; M2DP and Scan Context obtain 0.9934 and 0.9931, respectively.
+
+These results support a complementary, rather than dominant, role for SGMD. Geometry-based descriptors provide stronger strict spatial retrieval, whereas SGMD and landmark re-ranking prioritize semantic composition and persistent scene structure.
+
+\subsection{Component Analysis and Ablation Studies}~\label{subsec:ablation-study}
+The available experiments analyze the principal design choices of the framework. The fusion comparison evaluates complete input configurations, while the semantic-enrichment and descriptor experiments compare representations or ranking variants under their corresponding evaluation protocols.
+
+\subsubsection{Multimodal Fusion Configuration}
+The first component comparison examines the complete multimodal FFAM++ configuration relative to the LiDAR-only SalsaNext representation. The results are reported with both internal validation mIoU and task-oriented group metrics, as depicted in Table~\ref{tab:ablation-multimodal-fusion}. Because RGB information and FFAM++ are introduced together, this is a preliminary configuration comparison rather than an architectural ablation between FFAM and FFAM++.
+
+\begin{table*}[t]
+  \centering
+  \caption{Preliminary comparison of multimodal fusion configurations on SemanticKITTI
+  sequence 08. The comparison introduces both RGB information and FFAM++;
+  therefore, it does not isolate the additional channel-gating mechanism from
+  the effect of multimodality. All values are percentages.}
+  \label{tab:ablation-multimodal-fusion}
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular}{@{}llcccc@{}}
+    \toprule
+    Configuration & Input & Validation mIoU & 3D audit mIoU
+      & Long-term mIoU & Landmark mIoU \\
+    \midrule
+    LiDAR-only semantic baseline
+      & LiDAR & \textbf{60.00} & 34.85 & 65.45 & 60.97 \\
+    Multimodal FFAM++ fusion
+      & LiDAR+camera & 56.81 & \textbf{37.01} & \textbf{68.93}
+      & \textbf{63.76} \\
+    \midrule
+    Difference
+      & -- & $-3.19$ & $+2.16$ & $+3.48$ & $+2.79$ \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+Adding the multimodal configuration reduces internal validation mIoU by 3.19 percentage points, while the external audit reports higher Long-term and Landmark averages. These values use different point support and should be interpreted as evaluator-specific diagnostics. Since the comparison does not isolate the additional channel gate, no claim is made that FFAM++ is superior to the original FFAM.
+
+\subsubsection{Semantic Enrichment}
+The second ablation evaluates whether point-level refinement produces meaningful semantic corrections after multimodal fusion. The global metrics show that refinement mainly preserves the task-oriented group performance rather than increasing the overall mIoU.  The refinement module is designed to correct local errors in the fused representation, and its effect is more pronounced at the point level than at the global mIoU level. Table~\ref{tab:ablation-semantic-enrichment} shows that refinement makes structured local corrections, as evidenced by the point-level analysis of three representative sequence-08 scenes.
+\begin{table}[t]
+  \centering
+  \caption{Effect of semantic enrichment on the sequence-level segmentation
+  metrics. All values are percentages.}
+  \label{tab:ablation-semantic-enrichment}
+  \small
+  \setlength{\tabcolsep}{3.5pt}
+  \renewcommand{\arraystretch}{1.08}
+  \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{lcccc}
+\hline
+Representation & \begin{tabular}[c]{@{}c@{}}Validation \\ mIoU\end{tabular} & \begin{tabular}[c]{@{}c@{}}3D audit \\ mIoU\end{tabular} & \begin{tabular}[c]{@{}c@{}}Long-term \\ mIoU\end{tabular} & \begin{tabular}[c]{@{}c@{}}Landmark \\ mIoU\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Multimodal fusion \\ output\end{tabular} & \textbf{56.81} & \textbf{37.01} & 68.93 & 63.76 \\
+\begin{tabular}[c]{@{}l@{}}Semantically enriched \\ 3D output\end{tabular} & 55.09 & 36.95 & \textbf{69.02} & \textbf{63.81} \\ \hline
+Difference & $-1.72$ & $-0.06$ & $+0.09$ & $+0.05$ \\ \hline
+\end{tabular}
+  }
+\end{table}
+Although sequence-level mIoU does not improve, a diagnostic on three selected sequence-08 scenes reveals structured local corrections, as shown in Table~\ref{tab:ablation-refinement-diagnostics}. Within the processed points of these frames, refinement changes 52.11\% of predictions, corrects 43.36\%, and degrades 0.80\%. The resulting local accuracy difference is 42.56 percentage points. Because the frames were selected for qualitative inspection, this value is not an unbiased full-sequence estimate and is not used to claim an overall segmentation gain.
+\begin{table}[t]
+  \centering
+  \caption{Point-level refinement diagnostics averaged over three
+  representative sequence-08 frames. Correction and degradation percentages
+  use the number of valid processed points as their denominator.}
+  \label{tab:ablation-refinement-diagnostics}
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular}{@{}lr@{}}
+    \toprule
+    Refinement diagnostic & Mean value \\
+    \midrule
+    Predictions changed by refinement & 52.11\% \\
+    Valid points corrected & 43.36\% \\
+    Valid points degraded & 0.80\% \\
+    Accuracy change & $+42.56$ p.p. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Both correction percentages use the number of valid processed points as their denominator. The diagnostic indicates non-random local behavior on these examples, while the sequence-level metrics in Table~\ref{tab:ablation-semantic-enrichment} remain the primary evidence.
+
+\subsubsection{Descriptor Generation Method}
+The descriptor ablation first compares individual frames with temporal submaps, as depicted in Table~\ref{tab:ablation-frame-submap-recall}. The submap representation aggregates 20 frames with a stride of 10 and applies mean pooling followed by descriptor normalization. On validation sequence 08, submaps consistently improve Recall@K:
+\begin{table}[t]
+  \centering
+  \caption{Frame- and submap-level Recall@K on SemanticKITTI sequence 08.
+  The submap representation aggregates 20 frames with a stride of 10.}
+  \label{tab:ablation-frame-submap-recall}
+  \small
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular}{@{}rcrrr@{}}
+    \toprule
+    Threshold & Representation & Recall@1 & Recall@10 & Recall@20 \\
+    \midrule
+    5 m  & Frame  & 0.0032 & 0.0438 & 0.0698 \\
+    5 m  & Submap & \textbf{0.0256} & \textbf{0.0769} & \textbf{0.2564} \\
+    \addlinespace
+    10 m & Frame  & 0.0104 & 0.0934 & 0.1511 \\
+    10 m & Submap & \textbf{0.0366} & \textbf{0.2439} & \textbf{0.4512} \\
+    \addlinespace
+    20 m & Frame  & 0.0753 & 0.2205 & 0.2958 \\
+    20 m & Submap & \textbf{0.1504} & \textbf{0.4586} & \textbf{0.6617} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+The largest absolute gain occurs at the relaxed 20 m threshold and K=20, where Recall increases from 0.2958 to 0.6617, an improvement of 0.3659. At 10 m and K=20, the gain is 0.3001. These results confirm that temporal aggregation reduces single-frame ambiguity and is more appropriate for candidate generation.
+
+The second descriptor ablation evaluates the contribution of landmark-aware re-ranking (Table~\ref{tab:ablation-landmark-reranking}). Both variants use the same submap descriptors; the only difference is the additional semantic-spatial landmark score used to reorder the candidate list.
+\begin{table}[t]
+  \centering
+  \caption{Ablation of landmark-aware re-ranking. Consistency values are
+  averaged across the evaluated SemanticKITTI sequences.}
+  \label{tab:ablation-landmark-reranking}
+  \small
+  \setlength{\tabcolsep}{3.5pt}
+  \renewcommand{\arraystretch}{1.08}
+  \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}lrrr@{}}
+      \toprule
+      Metric and rank & SGMD & Re-ranking & Difference \\
+      \midrule
+      Semantic Consistency@1
+        & 0.9730 & \textbf{0.9782} & $+0.0052$ \\
+      Semantic Consistency@20
+        & 0.9643 & \textbf{0.9690} & $+0.0047$ \\
+      Semantic Consistency@100
+        & 0.9595 & \textbf{0.9610} & $+0.0015$ \\
+      \addlinespace
+      Landmark Consistency@1
+        & 0.9946 & \textbf{0.9979} & $+0.0033$ \\
+      Landmark Consistency@20
+        & 0.9926 & \textbf{0.9955} & $+0.0029$ \\
+      Landmark Consistency@100
+        & 0.9911 & \textbf{0.9919} & $+0.0008$ \\
+      \bottomrule
+    \end{tabular}%
+  }
+\end{table}
+Landmark re-ranking increases every reported consistency metric, which is expected because the re-ranking score itself contains landmark information. The independent spatial evaluation provides a mixed result: Recall@20 improves at 5\,m and 10\,m on sequence 08 but decreases at 20\,m. The re-ranking stage should therefore be described as a task-specific semantic ordering mechanism rather than a universally superior retrieval rule.
+
+Taken together, the component analyses support two bounded conclusions. First, the segmentation-side configurations preserve useful persistent semantic evidence but do not provide a general mIoU advantage, and the specific contribution of the FFAM++ channel gate is not isolated. Second, temporal submaps provide a clear spatial Recall@K gain over frames on validation sequence 08. Landmark-aware re-ranking improves semantic ordering, but its spatial effect depends on the distance threshold.
+
+\subsection{Scope and Limitations}~\label{subsec:scope-limitations}
+The experiments establish the behavior of the two-stage framework under the SemanticKITTI protocol, but they do not constitute a complete long-term place-recognition evaluation. Sequence 08 is an unseen validation trajectory from the same dataset and does not provide cross-session changes in season, weather, sensor configuration, or scene structure. Accordingly, SGMD is evaluated as a semantic candidate generator rather than as a final localization or loop-closure system.
+
+Three additional limitations bound the interpretation of the results. First, the present fusion comparison introduces RGB and FFAM++ simultaneously and therefore does not isolate the contribution of the proposed channel gate. Second, spatial comparisons are definitive only for methods evaluated with the matched submap protocol; pretrained learned baselines with different extraction densities are used solely as analytical references for semantic consistency. Third, the current consistency metrics describe agreement in semantic composition and persistent landmarks, not geometric correctness. Cross-session evaluation is required before extending these findings to long-term localization.

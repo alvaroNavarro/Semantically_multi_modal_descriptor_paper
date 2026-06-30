@@ -1,6 +1,6 @@
-\documentclass[lettersize,journal]{IEEEtran}
+\documentclass[letterpaper,journal]{IEEEtran}
 
-\include{dependences}
+\input{dependences}
 
 \begin{document}
 	\include{Sections/MyData}
@@ -8,11 +8,14 @@
 \maketitle
 
 \begin{abstract}
-	Reliable environment understanding and long-term localization remain fundamental challenges for autonomous systems operating in dynamic real-world environments. While LiDAR sensors provide accurate geometric information, camera imagery contributes rich appearance cues that can enhance scene interpretation. Recent advances in multimodal perception suggest that combining these complementary sensing modalities can significantly improve environmental representation. In this work, we propose a learning-based framework for the generation of global descriptors derived from semantically enriched textured point clouds obtained through LiDAR–camera fusion. The proposed approach integrates geometric structure and visual texture within a unified representation, enabling the extraction of discriminative semantic–geometric features that capture both spatial and contextual properties of the environment. By leveraging multimodal fusion during feature learning, the resulting descriptors incorporate complementary information that improves robustness against perceptual ambiguities. Furthermore, semantic awareness allows the descriptor to emphasize structurally meaningful elements of the scene, increasing its discriminability for place recognition and environmental understanding tasks. The learned representation is designed to remain robust under long-term environmental changes, such as illumination variations, seasonal effects, and dynamic objects, which are common in real-world deployments. Experimental analysis demonstrates that the proposed multimodal semantic descriptor improves scene discrimination and provides a more stable representation for long-term localization compared with unimodal alternatives. These results highlight the potential of semantically guided multimodal descriptors as a compact yet expressive representation for robust perception in autonomous systems.
+	Reliable candidate retrieval requires compact scene representations that preserve meaningful semantic information despite occlusions, dynamic objects, and single-frame ambiguity. This paper investigates whether multimodal semantic perception can be transformed into a global descriptor for retrieving semantically related scenes.
+	The proposed two-stage framework first performs LiDAR--RGB semantic segmentation using range-view feature fusion and sparse three-dimensional refinement. It then aggregates refined features, depth, semantic probabilities, and entropy-based confidence into a compact Semantic-Guided Multimodal Descriptor (SGMD), trained through a contrastive objective. SGMD ranks individual frames or temporal submaps according to their semantic scene compatibility.
+	Experiments on SemanticKITTI evaluate segmentation and descriptor retrieval separately. On the unseen validation sequence 08, the segmentation stage achieves a native point-level mIoU of 56.70\%, preserving relevant evidence from persistent and landmark classes, although it does not establish an overall mIoU advantage over the strongest multimodal baseline. Temporal submaps substantially improve spatial Recall@20 over individual frames, from 0.1511 to 0.4512 at 10\,m and from 0.2958 to 0.6617 at 20\,m.
+	The retrieved candidates also exhibit high Semantic Consistency and Landmark Consistency, indicating that SGMD preserves scene composition and persistent semantic evidence in its ranking. Geometry-based descriptors remain stronger under strict spatial criteria, confirming that SGMD should be interpreted as a semantic candidate-retrieval representation rather than as a standalone spatial place-recognition decision rule.
 \end{abstract}
 
 \begin{IEEEkeywords}
-	  Camera, 3D-LiDAR, sensor fusion, semantic descriptor, multi-modal fusion.
+	  Camera, 3D LiDAR, sensor fusion, semantic descriptor, multimodal fusion.
 \end{IEEEkeywords}
 	
 	\input{Sections/1.Introduction}

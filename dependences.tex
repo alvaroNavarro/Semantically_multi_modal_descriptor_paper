@@ -9,20 +9,23 @@
 \newcommand{\je}[1]{\textcolor{blue}{#1}}
 
 \usepackage{colortbl}
-\usepackage[table]{xcolor}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{multirow}
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+
+
 \usepackage{graphicx}
 \graphicspath{{./Figures/}} % folder for graphs
 \usepackage{float}
 %\usepackage{subfigure}
-\usepackage[font=footnotesize, justification=justified, singlelinecheck=false]{caption}
 %\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
-\usepackage{subcaption}
 \usepackage{textcomp}
-\usepackage[table,xcdraw]{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
@@ -44,8 +47,6 @@
 	
 \usepackage{tikz,color}
 \usepackage{smartdiagram}
-\usepackage{cuted}
-\usepackage{multirow}
 
 \usepackage[babel]{csquotes}
 %\usepackage[backend=biber,style=ieee, style=numeric-comp]{biblatex}
@@ -55,8 +56,9 @@
 
 \renewcommand*{\bibfont}{\footnotesize}
 
-\usepackage{tikz}
 \usetikzlibrary{shapes,arrows.meta,calc,positioning}
-\usepackage{pgfplots}	
 \usetikzlibrary{shapes.arrows}%
 \usetikzlibrary{shapes.symbols}
+
+\usepackage{titlesec}
+\titlespacing{\subsection}{0pt}{0.9em}{0.4em}
